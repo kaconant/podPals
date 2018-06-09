@@ -1,28 +1,33 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('podcasts', {
+    return queryInterface.createTable('users', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      podcastTitle: {
+      username: {
         type: Sequelize.STRING
       },
-      podcastID: {
-        type: Sequelize.INTEGER
-      },
-      imageURL: {
+      password: {
         type: Sequelize.STRING
       },
-      feedURL: {
+      github_id: {
         type: Sequelize.STRING
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('podcasts');
+    return queryInterface.dropTable('users');
   }
 };

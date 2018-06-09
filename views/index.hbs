@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,3 +57,15 @@
 </html>
 
 
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+
+{{#if isLoggedIn}}
+<a href='/users'>PodPals Homepage</a>
+<br>
+<a href='/logout'>Logout</a>
+{{/if}}
+
+{{#unless isLoggedIn}}
+<a href='/login'>Login</a>
+{{/unless}}
