@@ -3,6 +3,7 @@ const GitHubStrategy = require('passport-github').Strategy;
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const User = require('./models/user');
+require('dotenv').config()
 
 const setupAuth = (app) => {
   app.use(cookieParser());
@@ -14,8 +15,8 @@ const setupAuth = (app) => {
   }));
 
   passport.use(new GitHubStrategy({
-    clientID: '1691da776b29527abe46',
-    clientSecret: '4ffbf051d1d62c183374853f5b28c2f36c4d8138',
+    clientID: process.env.GITHUB_CLIENT_ID,
+    clientSecret: process.env.GITHUB_CLIENT_SECRET,
     callbackURL: 'http://localhost:3000/github/auth'
   }, (accessToken, refreshToken, profile, done) => {
     User.findOrCreate({
