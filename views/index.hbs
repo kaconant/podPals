@@ -1,8 +1,9 @@
 <body>
 	<div class="container jumbo-container">
         <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class='pageTitle'>{{title}}</h1>
+            <div class="container spacing-container">
+                <h1 class="pageTitle">{{title}}</h1>
+                <img class="podpalslogo" src="/images/podpals.png" alt="podpalslogo" />
                 <p class="lead">Read and write reviews of today's most popular podcasts!</p>
 
                 {{#if isLoggedIn}}
@@ -14,7 +15,6 @@
                 <input type="button" value='Log In' onclick="window.location.href='https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= client_id %>'" />
                 </form>
                 {{/unless}}
-<
             </div>
         </div>
 		<div class="row">
