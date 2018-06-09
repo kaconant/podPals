@@ -1,8 +1,3 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-</head>
 <body>
 	<div class="container jumbo-container">
         <div class="jumbotron jumbotron-fluid">
@@ -19,6 +14,7 @@
                 <input type="button" value='Log In' onclick="window.location.href='https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= client_id %>'" />
                 </form>
                 {{/unless}}
+<
             </div>
         </div>
 		<div class="row">
@@ -33,20 +29,30 @@
 				</form>
 			</div>
 		</div>
+
+        {{#each podcasts}}
 		<div class="row">
 			<div class="col-12 results">
 				<div class="card-deck">
 					<div class="card bg-light mb-3" style="max-width: 18rem;">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Light card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-				</div>
-			</div>
-        </div>
+                        <div class="card-header">{{this.podcastTitle}}</div>
+                        <div class="card-body">
+                            <img class="podcastImg">{{this.imageURL}}/>
+                            <p class="feedURL">{{this.feedURL}}</p>
+                            {{#each reviews}}
+                            <p class="reviewsUser">{{this.UserId}}</p>
+                            <p class="reviewsRating">{{this.rating}}</p>
+                            <p class="reviewsComment">{{this.comment}}</p>
+                            {{/each}}
+                        </div>
+				    </div>
+			    </div>
+            </div>
+        </div>    
+        {{/each}}
+
         <div class="footer">
-                <a href="/"> About Us</a>
+                <a href="/">About Us</a>
                 <a href="/">Contact Us</a>
                 <a href="/">Follow Us</a>
             </div>
@@ -54,18 +60,3 @@
             <p>&copy;PodPals, Inc.</p>   
 	</div>
 </body>
-</html>
-
-
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-
-{{#if isLoggedIn}}
-<a href='/users'>PodPals Homepage</a>
-<br>
-<a href='/logout'>Logout</a>
-{{/if}}
-
-{{#unless isLoggedIn}}
-<a href='/login'>Login</a>
-{{/unless}}
