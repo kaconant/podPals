@@ -1,13 +1,14 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var podcast = sequelize.define('podcast', {
+  var Podcast = sequelize.define('Podcast', {
     podcastTitle: DataTypes.STRING,
     podcastID: DataTypes.INTEGER,
     imageURL: DataTypes.STRING,
     feedURL: DataTypes.STRING
   }, {});
-  podcast.associate = function(models) {
+  Podcast.associate = function(models) {
     // associations can be defined here
+    Podcast.hasMany(models.Review);
   };
-  return podcast;
+  return Podcast;
 };
