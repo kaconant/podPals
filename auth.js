@@ -2,6 +2,7 @@ const passport = require('passport');
 const GitHubStrategy = require('passport-github').Strategy;
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+const User = require('./models/User');
 const User = require('./models/user');
 require('dotenv').config()
 
