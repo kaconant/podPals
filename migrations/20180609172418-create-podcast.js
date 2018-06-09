@@ -8,17 +8,22 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      podcastTitle: {
+      title: {
         type: Sequelize.STRING
-      },
-      podcastID: {
-        type: Sequelize.INTEGER
       },
       imageURL: {
         type: Sequelize.STRING
       },
       feedURL: {
         type: Sequelize.STRING
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
       }
     });
   },
