@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Podcast.associate = function(models) {
     // associations can be defined here
+    Podcast.hasMany(models.Review);
   };
   return Podcast;
 };
