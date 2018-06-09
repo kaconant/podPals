@@ -4,32 +4,33 @@ var fs        = require('fs');
 var path      = require('path');
 var Sequelize = require('sequelize');
 var basename  = path.basename(__filename);
-const env = require('dotenv').config();
+var env       = process.env.NODE_ENV || 'development';
 var config    = require(__dirname + '/../config/config.json')[env];
 var db        = {};
 
-const sequelize = new Sequelize(process.env.POSTGRES_DB_NAME, process.env.POSTGRES_USER, process.env.POSTGRES_PASS,
-  {
-    host: process.env.POSTGRES_HOST,
-    dialect: 'postgres',
-    operatorsAliases: false,
-    pool: {
-      max: 5,
-      min: 0,
-      acquire: 3000,
-      idle: 10000
-    },
+if (process.env.POSTGRES_HOST) {
+  var sequelize = new Sequelize(`postgres://${process.env.POSTGRES_USER}:${process.env.POSTGRES_PASS}@${process.env.POSTGRES_HOST}:5432/${process.env.POSTGRES_DB_NAME}`);
+} else if (config.use_env_variable) {
+  var sequelize = new Sequelize(process.env[config.use_env_variable], config);
+} else {
+  var sequelize = new Sequelize(config.database, config.username, config.password, config);
+}
+
+fs
+  .readdirSync(__dirname)
+  .filter(file => {
+    return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
+  })
+  .forEach(file => {
+    var model = sequelize['import'](path.join(__dirname, file));
+    db[model.name] = model;
   });
-  
-  // Connect to DB
-  sequelize
-    .authenticate()
-    .then(() => {
-      console.log('Connection has been established!');
-    })
-    .catch(err => {
-      console.error('Unable to connect to the database:', err);
-    });
+
+Object.keys(db).forEach(modelName => {
+  if (db[modelName].associate) {
+    db[modelName].associate(db);
+  }
+});
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
