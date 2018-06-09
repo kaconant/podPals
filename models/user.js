@@ -1,13 +1,17 @@
-const Sequelize = require('sequelize');
-const sequelize = new Sequelize('postgres://postgres@localhost:5432/podpals')
+'use strict';
 
-const User = sequelize.define('user', {
-    username: Sequelize.STRING,
-    password: Sequelize.STRING,
-    github_id: Sequelize.STRING,
-});
+module.exports = (sequelize, DataTypes) => {
 
-// only need to run this once
-User.sync();
+    const User = sequelize.define('User', {
+        username: Sequelize.STRING,
+        password: Sequelize.STRING,
+        github_id: Sequelize.STRING,
+    });
 
-module.exports = User;
+User.associate = function(models) {
+    // Associations
+    User.hasMany(models.Review);    
+    }
+    return User;
+};
+
