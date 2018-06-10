@@ -1,8 +1,10 @@
 <body>
+
     {{!-- jumbotron --}}
     <div class="jumbotron jumbotron-fluid">
         <div class="container containerLogBtn container-flex">
 
+            {{!-- creates log in button / log out button / sign up button depending on authentication  --}}
             {{#if isLoggedIn}}
             <input type="button" class="btn btn-secondary btn-xs" value='Log Out' onclick="window.location.href='/logout'" /> 
             {{/if}} 
@@ -12,64 +14,63 @@
             {{/unless}} 
             
             {{#if isLoggedIn}}
-            <input type="button" class="btn btn-secondary btn-xs" value='Log Out' onclick="window.location.href='/logout'" /> 
+            <input type="button" class="btn btn-secondary btn-xs" value='Sign Up' onclick="window.location.href='/logout'" /> 
             {{/if}} 
 
             {{#unless isLoggedIn}}
-            <input type="button" class="btn btn-secondary btn-xs" value='Sign Up' onclick="window.location.href='https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= client_id %>'"/> 
+            <input type="button" class="btn btn-secondary btn-xs" value='Home' onclick="window.location.href='https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= client_id %>'"/> 
             {{/unless}}
 
         </div>
         <img class="podpalslogo" src="/images/podpals.png" alt="podpalslogo" />
-        <p class="lead">Read and write reviews of today's most popular podcasts!</p>
+        <p class="lead">Read and write reviews of today's most popular podcasts</p>
     </div>
-
     <br>
 
     {{!--individual podcast image and title to render --}}
+    {{#each podcast}}
     <div class="container podcastInfo">
-
         <div class="card mb-3">
             <img class="card-img-top podcastImg" src="{{podcast.imageURL}}" alt="Card image cap">
         </div>
         <div class="card-body">
             <h5 class="card-title podcastTitle">{{podcast.title}}</h5>
         </div>
-
     </div> 
+    {{/each}} 
+    <br>
 
     {{!--rating Title --}}
     <div class="container ratingTitle">
         <div class="col-12 ratingStatement">
-        <p class="ratingsTitle">Check out other user ratings!</p>
+        <h3 class="eachRatingTitle">User Ratings</h3>
         </div>
     </div>
+    <br>
 
     {{!--individual user name to review for individual user review --}}
     <div class="container">
         <div class="col-12 previousReviews">
             <div class="card border-dark bg-bf mb-3 podcastCard">
 
-        {{#each users}}  
-                <div class="form-group row">
+                {{#each users}}  
                     <div class="col-sm-12">
                         <p class="userName">{{this.username}}</p>
                     </div>
-                </div>
-        {{/each}}
+                {{/each}}
 
-    {{!--individual user rating and comment for individual podcast to render --}}
-        {{#each reviews}}
-                <div class="form-group row">
-                    <div class="col-sm-6">
-                        <p class="rating">{{this.rating}}</p>
-                        <p class="comment">{{this.comment}}</p>
+                {{!--individual user rating and comment for individual podcast to render --}}
+                {{#each reviews}}
+                    <div class="col-sm-12 newRatingnewComment">
+                        <h3 class="ratingNumber">{{this.rating}}</h3>
+                        <h5 class="comment">{{this.comment}}</h5>
                     </div>
-                </div>
-        {{/each }}
+                {{/each }}
+
             </div>
         </div>  
     </div>
+    <br>
 
     {{!--option to write review if logged in --}}
     <div class="container">
@@ -80,40 +81,41 @@
             {{#each users}}
             <div class="form-group row">
                 <div class="col-sm-12">
-                    <p class="userName">{{this.username}}</p>
+                    <h2 class="userName">{{this.username}}</h2>
                 </div>
             </div>
             {{/each}}
 
-        <form>
-            <div class="form-group row">
-                <div class="col-sm-12">
-                    <label for="podcastReview" class="col-sm-10 col-form-label">Slide to rate this Podcast!</label>
-                    <input type="range" name="Rating" data-provide="slider" data-slider-ticks="[1, 2, 3, 4, 5]" data-slider-ticks-labels='[1, 2, 3, 4, 5]'
-                        data-slider-min="1" data-slider-max="5" data-slider-step="1" data-slider-value="5" data-slider-ticks_tooltip="true" />
-                    <button type="submit" class="btn btn-primary">Submit</button>
+            <form>
+                <div class="form-group row newInputReview">
+                    <div class="col-sm-12">
+                        <label for="podcastReview" class="col-sm-10 col-form-label">Slide to rate this Podcast!</label>
+                        <input type="range" name="Rating" data-provide="slider" data-slider-ticks="[1, 2, 3, 4, 5]" data-slider-ticks-labels='[1, 2, 3, 4, 5]'
+                            data-slider-min="1" data-slider-max="5" data-slider-step="1" data-slider-value="5" data-slider-ticks_tooltip="true" />
+                        <br>
+                        <button type="submit" class="btn btn-secondary">Submit</button>
+                    </div>
+                    <div class="col-sm-12">
+                        <input type="comment" class="form-control" id="comment" placeholder="Add a comment...">
+                        <button type="submit" class="btn btn-secondary">Submit</button>
+                    </div>
                 </div>
-                <div class="col-sm-12">
-                    <input type="comment" class="form-control" id="comment" placeholder="Add a comment...">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-            </div>
-        </form>
+            </form>
         {{!-- {{/if}} --}}
         </div>   
     </div>
-
+    <br>
+    
     {{!-- footer --}}
-    <div class="container">
-        <div class="footer footer-container container-flex">
-            <div class="text text-center">
-                <a href="/">About Us</a>
-                <a href="/">Contact Us</a>
-                <a href="/">Follow Us</a>
-            </div>
-            <div class="trademarks text-center">
-                <p>&copy;PodPals, Inc.</p>
-            </div>
+    <div class="footer-container">
+        <div class="text text-center">
+            <a href="/">About Us</a>
+            <a href="/">Contact Us</a>
+            <a href="/">Follow Us</a>
+        </div>
+        <div class="trademarks text-center">
+            <p>&copy;PodPals, Inc.</p>
         </div>
     </div>
+
 </body>
