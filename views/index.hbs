@@ -2,6 +2,7 @@
     <div class="jumbotron jumbotron-fluid">
         <div class="container containerLogBtn container-flex">
 
+            {{!-- creates log in button / log out button / sign up button depending on authentication  --}}
             {{#if isLoggedIn}}
             <input type="button" class="btn btn-secondary btn-xs" value='Log Out' onclick="window.location.href='/logout'" />
             {{/if}}
@@ -20,7 +21,6 @@
 
         </div>
         <img class="podpalslogo" src="/images/podpals.png" alt="podpalslogo" />
-        <p class="lead">Read and write reviews of today's most popular podcasts!</p>
     </div>
     <br>
     <div class="container">
@@ -37,22 +37,23 @@
 			</div>
 		</div>
     </div>
-	    <div class="row">
-	    	<div class="col-12 results">
-                
-                    {{#each podcasts}}
-	    			<div class="card border-dark bg-bf mb-3 podcastcard" style="max-width: 20%"> 
-                        <img class="card-img-top podcastImg" src="{{this.imageURL}}" style="max-width: 80%"/>
-                        <div class="card-body">
-                            <div class="card-header"><strong>{{this.title}}</strong></div>
-                            <br>
-                            <button type="button" class="btn btn-secondary btn-block podcastPage" href="/">Reviews</button>
-                            <button type="button" class="btn btn-secondary btn-block feedURL" href="{{this.feedURL}}">Website</button>
-                        </div>
+    <div class="row">
+        <div class="col-12 results">
+            
+            {{!-- creates individual podcast card via bootstrap --}}
+                {{#each podcasts}}
+                <div class="card border-dark bg-bf mb-3 podcastcard" style="max-width: 20%"> 
+                    <img class="card-img-top podcastImg" src="{{this.imageURL}}" style="max-width: 80%"/>
+                    <div class="card-body">
+                        <div class="card-header"><strong>{{this.title}}</strong></div>
+                        <br>
+                        <button type="button" class="btn btn-secondary btn-block podcastPage" href="/">Reviews</button>
+                        <button type="button" class="btn btn-secondary btn-block feedURL" href="{{this.feedURL}}">Website</button>
                     </div>
-                    {{/each}}
-            </div>
-		</div>
+                </div>
+                {{/each}}
+        </div>
+    </div>
 	</div>
     <div class="footer footer-container container-flex">
         <div class="text text-center">

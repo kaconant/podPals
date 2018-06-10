@@ -1,27 +1,96 @@
-
 <body>
-	<div class="container jumbo-container">
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class='pageTitle'>{{title}}</h1>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container containerLogBtn container-flex">
+
+            {{#if isLoggedIn}}
+            <input type="button" class="btn btn-secondary btn-xs" value='Log Out' onclick="window.location.href='/logout'" /> 
+            {{/if}} 
+            
+            {{#unless isLoggedIn}}
+            <input type="button" class="btn btn-secondary btn-xs" value='Log In' onclick="window.location.href='https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= client_id %>'"/> 
+            {{/unless}} 
+            
+            {{#if isLoggedIn}}
+            <input type="button" class="btn btn-secondary btn-xs" value='Log Out' onclick="window.location.href='/logout'" /> 
+            {{/if}} 
+
+            {{#unless isLoggedIn}}
+            <input type="button" class="btn btn-secondary btn-xs" value='Sign Up' onclick="window.location.href='https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= client_id %>'"/> 
+            {{/unless}}
+
+        </div>
+        <img class="podpalslogo" src="/images/podpals.png" alt="podpalslogo" />
+        <p class="lead">Read and write reviews of today's most popular podcasts!</p>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-12 results">
+
+            {{!--individual podcast image and title to render --}}
+            {{#each podcast}}
+            <div class="row">
+                <img class="card-img-top podcastImg" src="{{this.imageURL}}" style="max-width: 80%" />
+                <p class="podCastTitle">{{this.title}}</p>
             </div>
+            {{/each}} 
+
+            {{!--individual user review for individual podcast to render --}}
+            {{#each reviews}}
+            <form>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <p class="userName">{{users.username}}</p>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <p class="rating">{{this.rating}}</p>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <p class="comment">{{this.comment}}</p>
+                    </div>
+                </div>
+            </form>
+            {{/each }}
+
+            {{!--option to write review if logged in --}}
+            {{#if isLoggedIn}} 
+            <form>
+                <div class="form-group row" >
+                    <div class="col-sm-10">
+                        <p class="userName">{{users.username}}</p>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <label for="podcastReview" class="col-sm-2 col-form-label">Rate this Podcast!</label>
+                        <input type="rating" name="Rating" data-provide="slider" data-slider-ticks="[1, 2, 3, 4, 5]" data-slider-ticks-labels='["short", "medium", "long"]'
+                            data-slider-min="1" data-slider-max="5" data-slider-step="1" data-slider-value="5" data-slider-tooltip="hide"/>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <input type="comment" class="form-control" id="comment" placeholder="Add a comment...">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+            {{/if}}
+
         </div>
-		<div class="row">
-			<div class="col-12 search">
-			</div>
-		</div>
-        <div class="footer">
-                <a href="/">About Us</a>
-                <br>
-                <a href="/">Contact Us</a>
-                <br>
-                <a href="/">Follow Us</a>
-                <br>
+    </div>
+
+    <div class="footer footer-container container-flex">
+        <div class="text text-center">
+            <a href="/">About Us</a>
+            <a href="/">Contact Us</a>
+            <a href="/">Follow Us</a>
         </div>
-            <div class="trademarks">
-            <p>&copy;PodPals, Inc.</p>   
-	</div>
+        <div class="trademarks text-center">
+            <p>&copy;PodPals, Inc.</p>
+        </div>
+    </div>
 </body>
-</html>
-
-

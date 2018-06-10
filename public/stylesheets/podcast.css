@@ -1,0 +1,78 @@
+body {
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+    font: 14px bold;
+    font-family: Montserrat, sans-serif;
+    background-color: rgba(226, 168, 60, 0.952);
+    }
+  
+  .container > .row {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+  }
+  
+  .jumbotron-fluid {
+    margin: 0%;
+    padding: 3%;
+    position: relative;
+    min-width: 100%;
+    font-family: Montserrat, sans-serif;
+    text-align: center;
+    }
+  
+  .lead  {
+  font-weight: 400;
+  }
+  
+  .podpalslogo {
+    margin: 0%;
+    padding: 2%;
+    height: 100%;
+  }
+  
+  .btn {
+    display: inline;
+    margin: 1%;
+  }
+  
+  .btn:hover {
+    background-color: #1cc0dd;
+  }
+  
+  .containerLogBtn {
+    position: relative;
+    top: 1%;
+    left: 40%;
+    margin: 1%;
+    min-width: 100%;
+  }
+  
+  .searchArea {
+    margin-top: 3%;
+  }
+  
+  input.search-bar::placeholder {
+    font-weight: 400;
+  }
+  
+  .results {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 3%;
+  }
+
+  a {
+    color: #00B7FF;
+  }
+  
+  .footer, .trademarks {
+    background-color: whitesmoke;
+    margin: 0%;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    padding: 1%;
+  }
