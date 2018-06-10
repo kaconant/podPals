@@ -19,8 +19,11 @@ router.get('/:id', (req, res) => {
     models.Review.findAll({ where: { PodcastId: req.params.id }})
     // Send reviews & podcast data to the 'podcast' template
     .then( (reviews) => { res.render('podcast', {
+            layout: 'pclayout',
             podcast: models.Podcast.findById(req.params.id),
-            reviews: reviews
+            reviews: reviews,
+            isLoggedIn: ensureAuthenticated()
+
         });
     });
 });
@@ -31,7 +34,7 @@ router.post('/:id/reviews', (req, res) => {
         rating: req.body.rating,
         comment: req.body.comment,
         UserId: req.body.UserId,
-        PodcastId: podcastId
+        PodcastId: podcastId,
     });
     res.send(`Review posted to Podcast #${podcastId}`);
 });
