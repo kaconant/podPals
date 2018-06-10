@@ -1,62 +1,67 @@
 <body>
-	<div class="container jumbo-container">
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container spacing-container">
-                <h1 class="pageTitle">{{title}}</h1>
-                <img class="podpalslogo" src="/images/podpals.png" alt="podpalslogo" />
-                <p class="lead">Read and write reviews of today's most popular podcasts!</p>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container containerLogBtn container-flex">
 
-                {{#if isLoggedIn}}
-                <a href='/logout'>logout</a>
-                {{/if}}
+            {{#if isLoggedIn}}
+            <input type="button" class="btn btn-secondary btn-xs" value='Log Out' onclick="window.location.href='/logout'" />
+            {{/if}}
 
-                {{#unless isLoggedIn}}
-                <form>
-                <input type="button" value='Log In' onclick="window.location.href='https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= client_id %>'" />
-                </form>
-                {{/unless}}
-            </div>
+            {{#unless isLoggedIn}}
+            <input type="button" class="btn btn-secondary btn-xs" value='Log In' onclick="window.location.href='https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= client_id %>'" />
+            {{/unless}}
+
+            {{#if isLoggedIn}}
+            <input type="button" class="btn btn-secondary btn-xs" value='Log Out' onclick="window.location.href='/logout'" />
+            {{/if}}
+
+            {{#unless isLoggedIn}}
+            <input type="button" class="btn btn-secondary btn-xs" value='Sign Up' onclick="window.location.href='https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= client_id %>'" />
+            {{/unless}}
+
         </div>
+        <img class="podpalslogo" src="/images/podpals.png" alt="podpalslogo" />
+        <p class="lead">Read and write reviews of today's most popular podcasts!</p>
+    </div>
+    <br>
+    <div class="container">
 		<div class="row">
-			<div class="col-12 search">
+			<div class="col-12 searchArea">
 				<form id="search-form">
 					<div class="input-group input-group-lg">
 					<input class="form-control search-bar" placeholder="Search for a particular podcast...">
-					<span class="input-group-btn">
-					<button class="btn btn-light submitBtn" type="submit">Search</button>
+                    <span class="input-group-btn">
+					    <button class="btn btn-secondary searchBtn" type="submit">Search</button>
 					</span>
 				    </div>
 				</form>
 			</div>
 		</div>
-
-        {{#each podcasts}}
-		<div class="row">
-			<div class="col-12 results">
-				<div class="card-deck">
-					<div class="card bg-light mb-3" style="max-width: 18rem;">
-                        <div class="card-header">{{this.title}}</div>
+    </div>
+	    <div class="row">
+	    	<div class="col-12 results">
+                
+                    {{#each podcasts}}
+	    			<div class="card border-dark bg-bf mb-3 podcastcard" style="max-width: 20%"> 
+                        <img class="card-img-top podcastImg" src="{{this.imageURL}}" style="max-width: 80%"/>
                         <div class="card-body">
-                            <img class="podcastImg">{{this.imageURL}}/>
-                            <p class="feedURL">{{this.feedURL}}</p>
-                            {{#each reviews}}
-                            <p class="reviewsUser">{{this.UserId}}</p>
-                            <p class="reviewsRating">{{this.rating}}</p>
-                            <p class="reviewsComment">{{this.comment}}</p>
-                            {{/each}}
+                            <div class="card-header"><strong>{{this.title}}</strong></div>
+                            <br>
+                            <button type="button" class="btn btn-secondary btn-block podcastPage" href="/">Reviews</button>
+                            <button type="button" class="btn btn-secondary btn-block feedURL" href="{{this.feedURL}}">Website</button>
                         </div>
-				    </div>
-			    </div>
+                    </div>
+                    {{/each}}
             </div>
-        </div>    
-        {{/each}}
-
-        <div class="footer">
-                <a href="/">About Us</a>
-                <a href="/">Contact Us</a>
-                <a href="/">Follow Us</a>
-            </div>
-            <div class="trademarks">
+		</div>
+	</div>
+    <div class="footer footer-container container-flex">
+        <div class="text text-center">
+            <a href="/">About Us</a>
+            <a href="/">Contact Us</a>
+            <a href="/">Follow Us</a>
+        </div>
+        <div class="trademarks text-center">
             <p>&copy;PodPals, Inc.</p>   
+        </div>
 	</div>
 </body>
