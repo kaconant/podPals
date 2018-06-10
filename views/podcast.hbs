@@ -27,16 +27,14 @@
         <div class="col-12 results">
 
             {{!--individual podcast image and title to render --}}
-            {{#each podcast}}
             <div class="row">
-                <img class="card-img-top podcastImg" src="{{this.imageURL}}" style="max-width: 80%" />
-                <p class="podCastTitle">{{this.title}}</p>
+                <img class="card-img-top podcastImg" src="{{podcast.imageURL}}" style="max-width: 80%" />
+                <p class="podCastTitle">{{podcast.title}}</p>
             </div>
-            {{/each}} 
 
             {{!--individual user review for individual podcast to render --}}
             {{#each reviews}}
-            <form>
+            <div>
                 <div class="form-group row">
                     <div class="col-sm-10">
                         <p class="userName">{{users.username}}</p>
@@ -52,7 +50,7 @@
                         <p class="comment">{{this.comment}}</p>
                     </div>
                 </div>
-            </form>
+            </div>
             {{/each }}
 
             {{!--option to write review if logged in --}}
