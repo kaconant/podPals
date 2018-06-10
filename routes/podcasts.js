@@ -32,12 +32,11 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/:id/reviews', (req, res) => {
-    const podcastId = req.params.id; 
     models.Review.create({
         rating: req.body.rating,
         comment: req.body.comment,
-        UserId: req.body.UserId,
-        PodcastId: podcastId,
+        UserId: req.body.userId,
+        PodcastId: req.params.id,
     });
     res.send(`Review posted to Podcast #${podcastId}`);
 });
