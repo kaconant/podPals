@@ -23,7 +23,6 @@ router.get('/:id', (req, res) => {
             podcast: models.Podcast.findById(req.params.id),
             reviews: reviews,
             users: models.User.findAll({ where: { id: reviews.UserId } }),
-            isLoggedIn: ensureAuthenticated()
         });
         res.send({
             'reviews': reviews,
