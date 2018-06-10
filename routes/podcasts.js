@@ -13,19 +13,19 @@ router.get('/', function (req, res, next) {
     })
 });
 
+
+
 // Get individual podcast and its reviews
 router.get('/:id', (req, res) => {
-    let data = {
-        podcast: null,
-        revews: null
-    }
-    data.podcast = models.Podcast.findById(req.params.id)
-    .then( (podcast) => { data.reviews = models.Review.findAll({ where: { PodcastId: podcast.id  }})})
+    let getPodcast = models.Podcast.findById(req.params.id);
+    let getReviews = models.Review.findAll({ where: { PodcastId: req.params.id }});
+
+    Promise.all([getPodcast, getReviews])
     // Send reviews & podcast data to the 'podcast' template
-    .then( () => { res.render('podcast', {
+    .then( (data) => { res.render('podcast', {
             layout: 'pclayout',
-            podcast: JSON.stringify(data.podcast),
-            reviews: JSON.stringify(data.reviews)
+            podcast: (data[0]),
+            reviews: (data[1])
         });
         console.log(data);
     });
