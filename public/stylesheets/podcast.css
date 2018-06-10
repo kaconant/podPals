@@ -68,6 +68,11 @@ body {
     color: #00B7FF;
   }
   
+.podcastImg {
+    height: 100px;
+    width: 100px;
+}
+
   .footer, .trademarks {
     background-color: whitesmoke;
     margin: 0%;
