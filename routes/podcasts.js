@@ -4,7 +4,6 @@ const ensureAuthenticated = require('../auth').ensureAuthenticated;
 const models = require('../models');
 
 /* GET users listing. */
-/*
 router.get('/', function (req, res, next) {
     models.User.findById(req.podcast)
     .then(podcast => {
@@ -13,7 +12,6 @@ router.get('/', function (req, res, next) {
         });
     })
 });
-*/
 
 // Get individual podcast and its reviews
 router.get('/:id', (req, res) => {
@@ -27,5 +25,15 @@ router.get('/:id', (req, res) => {
     });
 });
 
-
+router.post('/:id/reviews', (req, res) => {
+    const podcastId = req.params.id; 
+    models.Review.create({
+        rating: req.body.rating,
+        comment: req.body.comment,
+        UserId: req.body.UserId,
+        PodcastId: podcastId
+    });
+    res.send(`Review posted to Podcast #${podcastId}`);
+});
+    
 module.exports = router;
