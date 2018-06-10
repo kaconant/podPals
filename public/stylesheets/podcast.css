@@ -1,83 +1,115 @@
 body {
-    margin: 0px 0px 0px 0px;
-    padding: 0px;
-    font: 14px bold;
-    font-family: Montserrat, sans-serif;
-    background-color: rgba(226, 168, 60, 0.952);
-    }
+  margin: 0px 0px 0px 0px;
+  padding: 0px;
+  font: 14px bold;
+  font-family: Montserrat, sans-serif;
+  background-color: rgba(226, 168, 60, 0.952);
+}
   
-  .container > .row {
-    margin: 0px;
-    padding: 0px;
-    width: 100%;
-  }
-  
-  .jumbotron-fluid {
-    margin: 0%;
-    padding: 3%;
-    position: relative;
-    min-width: 100%;
-    font-family: Montserrat, sans-serif;
-    text-align: center;
-    }
-  
-  .lead  {
-  font-weight: 400;
-  }
-  
-  .podpalslogo {
-    margin: 0%;
-    padding: 2%;
-    height: 100%;
-  }
-  
-  .btn {
-    display: inline;
-    margin: 1%;
-  }
-  
-  .btn:hover {
-    background-color: #1cc0dd;
-  }
-  
-  .containerLogBtn {
-    position: relative;
-    top: 1%;
-    left: 40%;
-    margin: 1%;
-    min-width: 100%;
-  }
-  
-  .searchArea {
-    margin-top: 3%;
-  }
-  
-  input.search-bar::placeholder {
-    font-weight: 400;
-  }
-  
-  .results {
-    text-align: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 3%;
-  }
-
-  a {
-    color: #00B7FF;
-  }
-  
-.podcastImg {
-    height: 100px;
-    width: 100px;
+.container > .row {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
 }
 
-  .footer, .trademarks {
-    background-color: whitesmoke;
-    margin: 0%;
-    text-align: center;
-    align-items: center;
-    align-content: center;
-    padding: 1%;
-  }
+.jumbotron-fluid {
+  margin: 0%;
+  padding: 3%;
+  position: relative;
+  min-width: 100%;
+  font-family: Montserrat, sans-serif;
+  text-align: center;
+}
+
+.podpalslogo {
+  margin: 0%;
+  padding: 2%;
+  height: 100%;
+}
+
+.lead  {
+  font-weight: 600;
+
+}
+
+.btn {
+  display: inline;
+  margin: 1%;
+}
+
+.btn:hover {
+  background-color: #1cc0dd;
+}
+
+.containerLogBtn {
+  position: relative;
+  top: 1%;
+  left: 40%;
+  margin: 1%;
+  min-width: 100%;
+}
+
+.search-bar {
+  font-weight: 600;
+}
+
+input.search-bar::placeholder {
+  font-weight: 400;
+}
+
+.podcastInfo {
+  text-align: center;
+  font-weight: 400;
+}
+
+.podcastImg {
+  max-width: 100%;
+}
+
+.newInputReview {
+  text-align: center;
+  font-weight: 400;
+}
+
+.previousReviews {
+  text-align: center;
+  font-weight: 400;
+  max-width: 100%;
+}
+
+.eachRatingTitle {
+  text-align: center;
+  font-weight: 600;
+}
+
+.newRatingnewComment {
+  text-align: center;
+}
+
+.ratingNumber {
+  font-weight: 600;
+}
+
+
+
+a {
+  color: #00B7FF;
+}
+
+.footer-container {
+  background-color: whitesmoke;
+  margin: 0%;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  padding: 1%;
+}
+
+.footer, .trademarks {
+  background-color: whitesmoke;
+  margin: 0%;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  padding: 1%;
+}

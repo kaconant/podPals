@@ -21,14 +21,14 @@ body {
   text-align: center;
   }
 
-.lead  {
-font-weight: 400;
-}
-
 .podpalslogo {
   margin: 0%;
   padding: 2%;
   height: 100%;
+}
+
+.lead  {
+font-weight: 600;
 }
 
 .btn {
@@ -52,6 +52,10 @@ font-weight: 400;
   margin-top: 3%;
 }
 
+.search-bar {
+  font-weight: 600;
+}
+
 input.search-bar::placeholder {
   font-weight: 400;
 }
@@ -69,6 +73,10 @@ input.search-bar::placeholder {
   margin: 2%;
   padding: 0px;
   min-width: 200px;
+}
+
+.podcastPage, .feedURL {
+  position: relative;
 }
 
 div.card-header {
