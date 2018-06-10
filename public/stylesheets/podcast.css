@@ -63,26 +63,7 @@ body {
     justify-content: center;
     padding: 3%;
   }
-  
-  .podcastcard {
-    text-align: center;
-    margin: 2%;
-    padding: 0px;
-    min-width: 200px;
-  }
-  
-  div.card-header {
-    background-color: #ffffff;
-  }
-  
-  .podcastImg {
-    margin: 0%;
-    padding: 0%;
-    min-width: 100%;
-    align-content: center;
-    align-items: center;
-  }
-  
+
   a {
     color: #00B7FF;
   }
