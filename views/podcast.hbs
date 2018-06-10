@@ -30,24 +30,11 @@
     {{!--individual podcast image and title to render --}}
     {{#each podcast}}
     <div class="container podcastInfo">
-
-        {{!-- <div class="card mb-3">
-            {{#each podcast}}
-            <img class="card-img-top podcastImg" src="{{this.imageURL}}" alt="Card image cap">
-            {{/each}} 
-        </div>
-
-        <div class="card-body">
-            {{#each podcast}}
-            <h5 class="card-title podcastTitle">{{this.title}}</h5>
-            {{/each}} 
-        </div> --}}
-
         <div class="card mb-3">
-            <img class="card-img-top podcastImg" src="{{this.imageURL}}" alt="Card image cap">
+            <img class="card-img-top podcastImg" src="{{podcast.imageURL}}" alt="Card image cap">
         </div>
         <div class="card-body">
-            <h5 class="card-title podcastTitle">{{this.title}}</h5>
+            <h5 class="card-title podcastTitle">{{podcast.title}}</h5>
         </div>
     </div> 
     {{/each}} 

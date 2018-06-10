@@ -13,22 +13,21 @@ router.get('/', function (req, res, next) {
     })
 });
 
+
+
 // Get individual podcast and its reviews
 router.get('/:id', (req, res) => {
-    // Find all Reviews w/ the Podcast ID
-    models.Review.findAll({ where: { PodcastId: req.params.id }})
+    let getPodcast = models.Podcast.findById(req.params.id);
+    let getReviews = models.Review.findAll({ where: { PodcastId: req.params.id }});
+
+    Promise.all([getPodcast, getReviews])
     // Send reviews & podcast data to the 'podcast' template
-    .then( (reviews) => { res.render('podcast', {
+    .then( (data) => { res.render('podcast', {
             layout: 'pclayout',
-            podcast: models.Podcast.findById(req.params.id),
-            reviews: reviews,
-            users: models.User.findAll({ where: { id: reviews.UserId } }),
+            podcast: (data[0]),
+            reviews: (data[1])
         });
-        res.send({
-            'reviews': reviews,
-            'users': users,
-            'podcast_id': podcast
-        });
+        console.log(data);
     });
 });
 
