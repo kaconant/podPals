@@ -29,7 +29,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/:id/reviews', (req, res) => {
+router.post('/:id/', (req, res) => {
     models.Review.create({
         rating: req.body.rating,
         comment: req.body.comment,
