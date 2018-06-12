@@ -1,6 +1,7 @@
 body {
   margin: 0px 0px 0px 0px;
   padding: 0px;
+  width: 100%;
   font: 14px bold;
   font-family: Montserrat, sans-serif;
   background-color: rgba(226, 168, 60, 0.952);
@@ -10,6 +11,7 @@ body {
   margin: 0px;
   padding: 0px;
   width: 100%;
+  align-content: center;
 }
 
 .jumbotron-fluid {
@@ -59,11 +61,18 @@ input.search-bar::placeholder {
 
 .podcastInfo {
   text-align: center;
+  display: flex;
+  justify-content: center;
   font-weight: 400;
 }
 
-.podcastImg {
-  max-width: 100%;
+.card, .podcastImg {
+  max-width: 500px;
+  max-height: 500px;
+}
+.podcastCard {
+  display: flex;
+  justify-content: center;
 }
 
 .newInputReview {
@@ -73,12 +82,20 @@ input.search-bar::placeholder {
 
 .previousReviews {
   text-align: center;
+  display: flex;
+  justify-content: center;
   font-weight: 400;
   max-width: 100%;
 }
 
 .eachRatingTitle {
   text-align: center;
+  font-weight: 600;
+}
+
+.newRatingArea {
+  display: flex;
+  justify-content: center;
   font-weight: 600;
 }
 
@@ -89,8 +106,6 @@ input.search-bar::placeholder {
 .ratingNumber {
   font-weight: 600;
 }
-
-
 
 a {
   color: #00B7FF;
@@ -112,4 +127,8 @@ a {
   align-items: center;
   align-content: center;
   padding: 1%;
+}
+
+.footer {
+  background-color: whitesmoke;
 }

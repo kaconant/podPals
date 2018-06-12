@@ -1,5 +1,4 @@
 <body>
-
     {{!-- jumbotron --}}
     <div class="jumbotron jumbotron-fluid">
         <div class="container containerLogBtn container-flex">
@@ -27,60 +26,60 @@
     </div>
     <br>
 
-    {{!--individual podcast image and title to render --}}
-    <div class="container podcastInfo">
-        <div class="card mb-3">
-            <img class="card-img-top podcastImg" src="{{podcast.imageURL}}" alt="Card image cap">
-        </div>
-        <div class="card-body">
-            <h5 class="card-title podcastTitle">{{podcast.title}}</h5>
-        </div>
-    </div> 
-    <br>
-
-    {{!--rating Title --}}
-    <div class="container ratingTitle">
-        <div class="col-12 ratingStatement">
-        <h3 class="eachRatingTitle">User Ratings</h3>
-        </div>
-    </div>
-    <br>
-
-    {{!--individual user name to review for individual user review --}}
     <div class="container">
-        <div class="col-12 previousReviews">
-            <div class="card border-dark bg-bf mb-3 podcastCard">
+        {{!--individual podcast image and title to render --}}
+        <div class=" podcastInfo">
+                <div class="card mb-3">
+                    <img class="card-img-top podcastImg" src="{{podcast.imageURL}}" alt="Card image cap">
+                    <h5 class="card-title podcastTitle">{{podcast.title}}</h5>
+                </div>
+            </div> 
+        <br>
 
-                {{#each users}}  
-                    <div class="col-sm-12">
-                        <p class="userName">{{this.username}}</p>
-                    </div>
-                {{/each}}
-
-                {{!--individual user rating and comment for individual podcast to render --}}
-                {{#each reviews}}
-                    <div class="col-sm-12 newRatingnewComment">
-                        <h3 class="ratingNumber">{{this.rating}}</h3>
-                        <h5 class="comment">{{this.comment}}</h5>
-                    </div>
-                {{/each }}
-
+        {{!--rating Title --}}
+        <div class="row ratingTitle">
+            <div class="col-12 ratingStatement">
+            <h3 class="eachRatingTitle">User Ratings</h3>
             </div>
-        </div>  
-    </div>
-    <br>
+        </div>
+        <br>
 
-    {{!--option to write review if logged in --}}
-    <div class="container">
+        {{!--individual user name to review for individual user review --}}
+            <div class="row">
+                <div class="col-12 previousReviews">
+                    <div class="card border-dark bg-bf mb-3 podcastCard">
+
+                        {{#each users}}  
+                            <div class="newRatingnewComment">
+                                <p class="userName">{{this.username}}</p>
+                        {{/each}}
+
+                        {{!--individual user rating and comment for individual podcast to render --}}
+                        {{#each reviews}}
+                                <h3 class="ratingNumber">{{this.rating}}</h3>
+                                <h5 class="comment">{{this.comment}}</h5>
+                            </div>
+                        {{/each }}
+
+                    </div>
+                </div>
+            </div>  
+        <br>
+
+        {{!--option to write review if logged in --}}
+
+        {{!--rating Title --}}
+        <div class="row newRating">
+            <div class="col-12 ratingStatement">
+            <h3 class="newRatingArea">Write a New Rating</h3>
+            </div>
+        </div>
+        <br>
 
         {{!-- {{#if isLoggedIn}}  --}}
-        <div class="col-12 newReviews">
-
             {{#each users}}
             <div class="form-group row">
-                <div class="col-sm-12">
                     <h2 class="userName">{{this.username}}</h2>
-                </div>
             </div>
             {{/each}}
 
@@ -90,30 +89,25 @@
                         <label for="podcastReview" class="col-sm-10 col-form-label">Slide to rate this Podcast!</label>
                         <input type="range" name="Rating" data-provide="slider" data-slider-ticks="[1, 2, 3, 4, 5]" data-slider-ticks-labels='[1, 2, 3, 4, 5]'
                             data-slider-min="1" data-slider-max="5" data-slider-step="1" data-slider-value="5" data-slider-ticks_tooltip="true" />
-                        <br>
                         <button type="submit" class="btn btn-secondary">Submit</button>
-                    </div>
-                    <div class="col-sm-12">
                         <input type="comment" class="form-control" id="comment" placeholder="Add a comment...">
                         <button type="submit" class="btn btn-secondary">Submit</button>
                     </div>
                 </div>
             </form>
         {{!-- {{/if}} --}}
-        </div>   
-    </div>
-    <br>
-    
-    {{!-- footer --}}
-    <div class="footer-container">
-        <div class="text text-center">
-            <a href="/">About Us</a>
-            <a href="/">Contact Us</a>
-            <a href="/">Follow Us</a>
-        </div>
-        <div class="trademarks text-center">
-            <p>&copy;PodPals, Inc.</p>
-        </div>
-    </div>
 
+        <div class="row">
+            <div class="col-12">
+                <div class="footer text-center">
+                    <a href="/">About Us</a>
+                    <a href="/">Contact Us</a>
+                    <a href="/">Follow Us</a>
+                <br>
+                <br>
+                    <p>&copy;PodPals, Inc.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
