@@ -28,18 +28,18 @@
 
     <div class="container">
         {{!--individual podcast image and title to render --}}
-        <div class=" podcastInfo">
+        <div class="podcastInfo">
                 <div class="card mb-3">
                     <img class="card-img-top podcastImg" src="{{podcast.imageURL}}" alt="Card image cap">
-                    <h5 class="card-title podcastTitle">{{podcast.title}}</h5>
+                    <h3 class="card-title podcastTitle">{{podcast.title}}</h3>
                 </div>
-            </div> 
-        <br>
+        </div> 
 
         {{!--rating Title --}}
+        <hr>
         <div class="row ratingTitle">
-            <div class="col-12 ratingStatement">
-            <h3 class="eachRatingTitle">User Ratings</h3>
+            <div class="col-12 userRatingStatement">
+                <h3 class="eachRatingTitle">User Ratings</h3>
             </div>
         </div>
         <br>
@@ -67,34 +67,41 @@
         <br>
 
         {{!--option to write review if logged in --}}
+        {{!-- {{#if isLoggedIn}}  --}}
 
-        {{!--rating Title --}}
+        <hr>
         <div class="row newRating">
             <div class="col-12 ratingStatement">
             <h3 class="newRatingArea">Write a New Rating</h3>
             </div>
-        </div>
-        <br>
-
-        {{!-- {{#if isLoggedIn}}  --}}
+            <br>
+            
             {{#each users}}
             <div class="form-group row">
                     <h2 class="userName">{{this.username}}</h2>
             </div>
             {{/each}}
 
-            <form>
-                <div class="form-group row newInputReview">
-                    <div class="col-sm-12">
-                        <label for="podcastReview" class="col-sm-10 col-form-label">Slide to rate this Podcast!</label>
-                        <input type="range" id="rating_field" name="rating" data-provide="slider" data-slider-ticks="[1, 2, 3, 4, 5]" data-slider-ticks-labels='[1, 2, 3, 4, 5]'
-                            data-slider-min="1" data-slider-max="5" data-slider-step="1" data-slider-value="5" data-slider-ticks_tooltip="true" />
-                        <input type="comment" name="comment" class="form-control" id="comment_field" placeholder="Add a comment...">
-                        <input type="hidden" id="userId_field" name="UserId" value=1>
-                        <button type="submit" id="submitButton" class="btn btn-secondary">Submit</button>
+            <form class="newInputReview">
+                <div class="form-group row">
+                    <div class="col-sm-12 ratingAndComment">
+                        <div class="sliderForReview">
+                            <label for="podcastReview" class="col-sm-10 col-form-label">Slide to rate this Podcast!</label>
+                            <input type="range" name="Rating" data-provide="slider" data-slider-ticks="[1, 2, 3, 4, 5]" data-slider-ticks-labels='[1, 2, 3, 4, 5]'
+                                data-slider-min="1" data-slider-max="5" data-slider-step="1" data-slider-value="5" data-slider-ticks_tooltip="true" />
+                            <br>
+                            <span class="input-group-btn">
+                                <button class="btn btn-secondary searchBtn" type="submit">Submit</button>
+                            </span>
+                        </div>
+                        <div class="col-sm-12 commentForReview">
+                        <input type="comment" class="form-control newComment" id="comment" placeholder="Add a comment...">
+                        <button type="submit" class="btn btn-secondary">Submit</button>
+                        </div>
                     </div>
                 </div>
             </form>
+        </div>
         {{!-- {{/if}} --}}
 
         <div class="row">

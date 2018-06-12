@@ -66,7 +66,12 @@ input.search-bar::placeholder {
   font-weight: 400;
 }
 
-.card, .podcastImg {
+.card {
+  max-width: 500px;
+  max-height: 600px;
+}
+
+.podcastImg {
   max-width: 500px;
   max-height: 500px;
 }
@@ -74,10 +79,22 @@ input.search-bar::placeholder {
   display: flex;
   justify-content: center;
 }
+.podcastTitle {
+  font-weight: 600;
+  padding: 2%;
+  margin: 3%;
+}
+
+.eachRatingTitle {
+  margin-top: 2%;
+}
 
 .newInputReview {
+  display: flex;
+  justify-content: center;
   text-align: center;
   font-weight: 400;
+  max-width: 50%;
 }
 
 .previousReviews {
@@ -88,36 +105,47 @@ input.search-bar::placeholder {
   max-width: 100%;
 }
 
+.newRating {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
 .eachRatingTitle {
   text-align: center;
   font-weight: 600;
-}
-
-.newRatingArea {
-  display: flex;
-  justify-content: center;
-  font-weight: 600;
-}
-
-.newRatingnewComment {
-  text-align: center;
 }
 
 .ratingNumber {
   font-weight: 600;
 }
 
-a {
-  color: #00B7FF;
+.newRatingArea {
+  display: block;
+  justify-content: center;
+  font-weight: 600;
+  margin-top: 3%;
 }
 
-.footer-container {
-  background-color: whitesmoke;
-  margin: 0%;
-  text-align: center;
-  align-items: center;
-  align-content: center;
-  padding: 1%;
+.ratingAndComment {
+  padding: 3%;
+}
+
+.newComment {
+  margin-top: 3%;
+}
+
+.input-group-btn {
+  display: block;
+  justify-content: center;
+}
+
+.commentForReview {
+  margin-top: 5%;
+}
+
+a {
+  color: #00B7FF;
 }
 
 .footer, .trademarks {
@@ -127,8 +155,4 @@ a {
   align-items: center;
   align-content: center;
   padding: 1%;
-}
-
-.footer {
-  background-color: whitesmoke;
 }
