@@ -13,8 +13,6 @@ router.get('/', function (req, res, next) {
     })
 });
 
-
-
 // Get individual podcast and its reviews
 router.get('/:id', (req, res) => {
     let getPodcast = models.Podcast.findById(req.params.id);
@@ -36,7 +34,7 @@ router.post('/:id/reviews', (req, res) => {
         rating: req.body.rating,
         comment: req.body.comment,
         UserId: req.body.userId,
-        PodcastId: req.params.id,
+        PodcastId: req.params.id
     });
     res.send(`Review posted to Podcast #${podcastId}`);
 });
