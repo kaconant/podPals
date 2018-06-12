@@ -55,11 +55,9 @@ const setupAuth = (app) => {
 
 const ensureAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
-    if (req.isAuthenticated()) {
       return next();
     }
     res.redirect('/login');
-  };
 }
 
 module.exports = setupAuth;
