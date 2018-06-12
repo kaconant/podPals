@@ -3,6 +3,8 @@ var router = express.Router();
 const ensureAuthenticated = require('../auth').ensureAuthenticated;
 const User = require('../models/User');
 
+router.all('*', ensureAuthenticated);
+
 /* GET users listing. */
 router.get('/', function (req, res, next) {
   User.findById(req.user)
