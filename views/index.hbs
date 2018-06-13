@@ -4,21 +4,21 @@
     <div class="jumbotron jumbotron-fluid">
         <div class="container containerLogBtn container-flex">
 
-            {{!-- creates log in button / log out button / sign up button depending on authentication  --}}
+            {{!-- creates log in button / log out button / sign up button depending on authentication 
             {{#if isLoggedIn}}
-            <input type="button" class="btn btn-secondary btn-xs" value='Log Out' onclick="window.location.href='/logout'" />
-            {{/if}}
+            <input type="button" class="btn btn-secondary btn-xs" value='Log Out' onclick=window.location.href='/logout'>
+            {{/if}} --}}
 
             {{#unless isLoggedIn}}
-            <input type="button" class="btn btn-secondary btn-xs" value='Log In' onclick="window.location.href='https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= client_id %>'" />
+            <input type="button" class="btn btn-secondary btn-xs" value='Log In' onclick=window.location.href=>
             {{/unless}}
 
-            {{#if isLoggedIn}}
-            <input type="button" class="btn btn-secondary btn-xs" value='Log Out' onclick="window.location.href='/logout'" />
-            {{/if}}
+            {{!-- {{#if isLoggedIn}}
+            <input type="button" class="btn btn-secondary btn-xs" value='Log Out' onclick=window.location.href='/logout'>
+            {{/if}} --}}
 
             {{#unless isLoggedIn}}
-            <input type="button" class="btn btn-secondary btn-xs" value='Sign Up' onclick="window.location.href='https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= client_id %>'" />
+            <input type="button" class="btn btn-secondary btn-xs" value='Sign Up' onclick=window.location.href=>
             {{/unless}}
 
         </div>
@@ -53,8 +53,10 @@
                 <div class="card-body">
                     <div class="card-header"><strong>{{this.title}}</strong></div>
                     <br>
-                    <button type="button" class="btn btn-secondary btn-block podcastPage" href="/">Reviews</button>
-                    <button type="button" class="btn btn-secondary btn-block feedURL" href="{{this.feedURL}}">Website</button>
+                    <button type="button" class="btn btn-secondary btn-block podcastPage" onclick=location.href="/podcasts/{{this.id}}">Reviews</button>
+                    <button type="button" class="btn btn-secondary btn-block feedURL" onclick=location.href="{{this.feedURL}}">RSS Feed</button>
+                
+
                 </div>
             </div>
             {{/each}}
