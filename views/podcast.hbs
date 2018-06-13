@@ -41,20 +41,20 @@
         <br>
 
         {{!--individual user name to review for individual user review --}}
-            <div class="row">
+            <div class="row flex-row flex-wrap">
                 <div class="col-12 previousReviews">
 
-                        {{#each reviews}}
-                        <div class="card border-dark bg-bf mb-3 podcastCard">
-                        {{#each users}}  
-                            <div class="newRatingnewComment">
-                                <p class="userName">{{this.github_id}}</p>
-                        {{/each}}
-                        {{!--individual user rating and comment for individual podcast to render --}}
-                                <h3 class="ratingNumber">{{this.rating}} Stars</h3>
-                                <h5 class="comment">{{this.comment}}</h5>
-                            </div>
-                        {{/each }}
+                    {{#each reviews}}
+                    <div class="card border-dark bg-bf mb-3 podcastCard">
+                    {{#each users}}  
+                        <div class="newRatingnewComment">
+                            <p class="userName">{{this.github_id}}</p>
+                    {{/each}}
+                    {{!--individual user rating and comment for individual podcast to render --}}
+                            <h4 class="ratingNumber">{{this.rating}} Stars</h4>
+                            <h5 class="comment">{{this.comment}}</h5>
+                        </div>
+                    {{/each }}
 
                     </div>
                 </div>
@@ -62,12 +62,13 @@
         <br>
 
         {{!--option to write review if logged in --}}
+
         {{!-- {{#if isLoggedIn}}  --}}
 
         <hr>
         <div class="row newRating">
             <div class="col-12 ratingStatement">
-            <h3 class="newRatingArea">Write a New Rating</h3>
+            <h3 class="newRatingArea">Rate this Podcast</h3>
             </div>
             <br>
 
@@ -103,16 +104,6 @@
                                         <i class="active fa fa-star" aria-hidden="true"></i>
                                 </label>
                             </div>
-
-                        {{!-- <div class="sliderForReview">
-                            <label for="podcastReview" class="col-sm-10 col-form-label">Slide to rate this Podcast!</label>
-                            <input type="range" name="Rating" data-provide="slider" data-slider-ticks="[1, 2, 3, 4, 5]" data-slider-ticks-labels='[1, 2, 3, 4, 5]'
-                                data-slider-min="1" data-slider-max="5" data-slider-step="1" data-slider-value="5" data-slider-ticks_tooltip="true" />
-                            <br>
-                            <span class="input-group-btn">
-                                <button class="btn btn-secondary submitBtn" type="submit">Submit</button>
-                            </span>
-                        </div> --}}
 
                             <div class="col-sm-12 commentForReview">
                             <input type="comment" class="form-control newComment" id="comment" placeholder="Add a comment...">
