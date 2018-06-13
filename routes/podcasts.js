@@ -29,14 +29,14 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/:id/', (req, res) => {
+router.post('/:id/reviews', (req, res) => {
     models.Review.create({
         rating: req.body.rating,
         comment: req.body.comment,
         UserId: req.body.userId,
         PodcastId: req.params.id
     });
-    res.send(`Review posted to Podcast #${podcastId}`);
+    res.send(`Review posted to Podcast #${req.params.id}`);
 });
     
 module.exports = router;

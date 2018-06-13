@@ -3,27 +3,30 @@ console.log('podcast.js connected!')
 
 // Submit a new Review
 
-let submitButton = document.getElementById('submitButton');
-let reviewUserId = document.getElementById('userId_field').value();
-let reviewRating = document.getElementById('rating_field').value();
-let reviewComment = document.getElementById('comment_field').value();
+$(function () {
 
-submitButton.addEventListener('click', function(event) { 
-    event.preventDefault()
-    var url = 'http://localhost:3000/podcasts/10/reviews';
-    var data = { 
-        UserId: reviewUserId,
-        rating: reviewRating,
-        comment: reviewComment
-    };
-    fetch( url, {
-    method: 'POST', // or 'PUT'
-    body: JSON.stringify(data), // data can be `string` or {object}!
-    headers:{
-        'Content-Type': 'application/json'
-    }
-    }).then(res => res.json())
-    .catch(error => console.error('Error:', error))
-    .then(response => console.log('Success:', response));
-    console.log(res.json());
-    }, false);
+    let reviewRating = 5;
+    let reviewComment = $("#comment").val();
+    let reviewUser = 1;
+
+    $('.newCommentBtn').click( (e) => {
+
+        e.preventDefault();
+
+        var data = { "rating": reviewRating, "comment": reviewComment, "UserId": reviewUser };
+
+        $.ajax({
+            type: "POST",
+            url: `http://localhost:3000/podcasts/2/reviews`,
+            // The key needs to match your method's input parameter (case-sensitive).
+            data: data,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(data){alert(data)},
+            failure: function(errMsg) {
+            alert(errMsg);
+            }
+        });
+        console.log(data);
+    })
+}); 
