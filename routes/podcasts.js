@@ -23,7 +23,7 @@ router.get('/:id', (req, res) => {
     .then( (data) => { res.render('podcast', {
             layout: 'pclayout',
             podcast: (data[0]),
-            reviews: (data[1])
+            reviews: (data[1]),
         });
         console.log(data);
     });

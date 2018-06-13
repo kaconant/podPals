@@ -13,7 +13,7 @@ $(function () {
 
         e.preventDefault();
 
-        var data = { "rating": reviewRating, "comment": reviewComment, "UserId": reviewUser };
+        let data = { "rating": reviewRating, "comment": reviewComment, "UserId": reviewUser };
 
         $.ajax({
             type: "POST",
