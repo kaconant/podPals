@@ -4,21 +4,21 @@
     <div class="jumbotron jumbotron-fluid">
         <div class="container containerLogBtn container-flex">
 
-            {{!-- creates log in button / log out button / sign up button depending on authentication 
+            {{!-- creates log in button / log out button / sign up button depending on authentication  --}}
             {{#if isLoggedIn}}
             <input type="button" class="btn btn-secondary btn-xs" value='Log Out' onclick=window.location.href='/logout'>
-            {{/if}} --}}
+            {{/if}}
 
             {{#unless isLoggedIn}}
-            <input type="button" class="btn btn-secondary btn-xs" value='Log In' onclick=window.location.href=>
+            <input type="button" class="btn btn-secondary btn-xs" value='Log In' onclick=window.location.href='/login' />
             {{/unless}}
 
-            {{!-- {{#if isLoggedIn}}
+            {{#if isLoggedIn}}
             <input type="button" class="btn btn-secondary btn-xs" value='Log Out' onclick=window.location.href='/logout'>
-            {{/if}} --}}
+            {{/if}}
 
             {{#unless isLoggedIn}}
-            <input type="button" class="btn btn-secondary btn-xs" value='Sign Up' onclick=window.location.href=>
+            <input type="button" class="btn btn-secondary btn-xs" value='Sign Up' onclick=window.location.href='/login' />
             {{/unless}}
 
         </div>
