@@ -4,16 +4,16 @@
         <div class="container containerLogBtn container-flex">
 
             {{!-- creates log in button / log out button / sign up button depending on authentication  --}}
-            {{!-- {{#if isLoggedIn}}
-            <input type="button" class="btn btn-secondary btn-xs" value='Log Out' onclick=window.location.href='/logout'/> 
-            {{/if}}  --}}
+            {{#if isLoggedIn}}
+            <input type="button" class="btn btn-secondary btn-xs" value='Log Out' onclick=window.location.href='/'/> 
+            {{/if}}
             
             {{#unless isLoggedIn}}
-            <input type="button" class="btn btn-secondary btn-xs" value='Log In' onClick=window.location.href='https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= client_id %>'/> 
+            <input type="button" class="btn btn-secondary btn-xs" value='Log In' onclick=window.location.href='/login'/> 
             {{/unless}} 
 
             {{#unless isLoggedIn}}
-            <input type="button" class="btn btn-secondary btn-xs" value='Home' onClick=location.href='/' /> 
+            <input type="button" class="btn btn-secondary btn-xs" value='Home' onclick=location.href='/' /> 
             {{/unless}}
 
         </div>
