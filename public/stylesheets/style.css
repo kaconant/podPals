@@ -5,13 +5,11 @@ body {
   font-family: Montserrat, sans-serif;
   background-color: rgba(226, 168, 60, 0.952);
   }
-
 .container > .row {
   margin: 0px;
   padding: 0px;
   width: 100%;
 }
-
 .jumbotron-fluid {
   margin: 0%;
   padding: 3%;
@@ -20,68 +18,55 @@ body {
   font-family: Montserrat, sans-serif;
   text-align: center;
   }
-
 .podpalslogo {
   margin: 0%;
   padding: 2%;
   height: 100%;
   width: 20%;
 }
-
 .lead  {
 font-weight: 600;
 }
-
 .btn {
   display: inline;
   margin: 1%;
 }
-
 .btn:hover {
   background-color: #1cc0dd;
 }
-
 .containerLogBtn {
   top: 1%;
   margin: 1%;
   display: flex;
   flex: wrap-reverse;
 }
-
 .searchArea {
   margin-top: 3%;
 }
-
 .search-bar {
   font-weight: 600;
 }
-
 input.search-bar::placeholder {
   font-weight: 400;
 }
-
 .results {
   text-align: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-
 .podcastcard {
   text-align: center;
   margin: 2%;
   padding: 0px;
   min-width: 200px;
 }
-
 .podcastPage, .feedURL {
   position: relative;
 }
-
 div.card-header {
   background-color: #ffffff;
 }
-
 .podcastImg {
   margin: 0%;
   padding: 0%;
@@ -89,15 +74,20 @@ div.card-header {
   align-content: center;
   align-items: center;
 }
-
 a {
   color: #00B7FF;
 }
+<<<<<<< HEAD
 
 .col-12 {
   max-width: 100%;
 }
 
+=======
+.col-12 {
+  max-width: 100%;
+}
+>>>>>>> 67433e7728ae47695033c10cff2112fc91fa92e2
 .footer, .trademarks {
   background-color: whitesmoke;
   margin: 0%;

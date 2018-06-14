@@ -6,19 +6,24 @@ body {
   font-family: Montserrat, sans-serif;
   background-color: rgba(226, 168, 60, 0.952);
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 67433e7728ae47695033c10cff2112fc91fa92e2
 .row {
   margin-left: 0;
   margin-right: 0;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 67433e7728ae47695033c10cff2112fc91fa92e2
 .container > .row {
   margin: 0px;
   padding: 0px;
   width: 100%;
   align-content: center;
 }
-
 .jumbotron-fluid {
   margin: 0%;
   padding: 3%;
@@ -28,69 +33,60 @@ body {
   font-family: Montserrat, sans-serif;
   text-align: center;
 }
-
 .podpalslogo {
   margin: 0%;
   padding: 2%;
   height: 100%;
   width: 20%;
 }
-
 .lead  {
   font-weight: 600;
 }
-
 .btn {
   display: inline;
   margin: 1%;
 }
-
 .btn:hover {
   background-color: #1cc0dd;
 }
-
 .containerLogBtn {
     top: 1%;
     margin: 1%;
     display: flex;
     flex: wrap-reverse;
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 67433e7728ae47695033c10cff2112fc91fa92e2
 .search-bar {
   font-weight: 600;
 }
-
 input.search-bar::placeholder {
   font-weight: 400;
 }
-
 .podcastInfo {
   text-align: center;
   display: flex;
   justify-content: center;
   font-weight: 400;
 }
-
 .card {
   max-width: 500px;
   max-height: 600px;
 }
-
 .podcastImg {
   max-width: 500px;
   max-height: 500px;
 }
-
 .podcastTitle {
   font-weight: 600;
   padding: 2%;
   margin: 3%;
 }
-
 .eachRatingTitle {
   margin-top: 2%;
 }
-
 .newInputReview {
   display: flex;
   justify-content: center;
@@ -98,7 +94,6 @@ input.search-bar::placeholder {
   font-weight: 400;
   max-width: 50%;
 }
-
 .previousReviews {
   text-align: center;
   display: flex;
@@ -106,35 +101,29 @@ input.search-bar::placeholder {
   font-weight: 400;
   max-width: 100%;
 }
-
 .podcastCard {
   margin: 1% auto;
   min-width: 500px;
   max-width: 500px;
 }
-
 .updateBtn, .deleteBtn {
   text-align: center;
   min-width: 200px;
   max-width: 200px;
   display: inline;
 }
-
 .newRating {
   text-align: center;
   display: flex;
   justify-content: center;
 }
-
 .eachRatingTitle {
   text-align: center;
   font-weight: 600;
 }
-
 .ratingNumber {
   font-weight: 600;
 }
-
 .newRatingArea {
   display: block;
   justify-content: center;
@@ -142,22 +131,18 @@ input.search-bar::placeholder {
   margin-top: 3%;
   margin-bottom: 3%;
 }
-
 .ratingAndComment {
   min-width: 500px;
   max-width: 500px;
 }
-
 .star-rating {
   direction: rtl;
   display: inline-block;
   padding: 20px
 }
-
 .star-rating input[type=radio] {
   display: none
 }
-
 .star-rating label {
   color: #bbb;
   font-size: 18px;
@@ -166,36 +151,29 @@ input.search-bar::placeholder {
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out
 }
-
 .star-rating label:hover,
 .star-rating label:hover ~ label,
 .star-rating input[type=radio]:checked ~ label {
   color:rgba(226, 168, 60);
 }
-
 input.newComment::placeholder {
   font-weight: 400;
 }
-
 .newComment {
   margin-bottom: 3%;
   font-weight: 600;
   max-width: 100%;
 }
-
 .input-group-btn {
   display: block;
   justify-content: center;
 }
-
 .newCommentBtn {
   margin-bottom: 5%;
 }
-
 a {
   color: #00B7FF;
 }
-
 .footer, .trademarks {
   background-color: whitesmoke;
   margin: 0%;
