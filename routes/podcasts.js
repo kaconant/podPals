@@ -8,7 +8,8 @@ router.get('/', function (req, res, next) {
     models.User.findById(req.podcast)
     .then(podcast => {
         res.render('podcast', {
-        podcast: podcast
+        podcast: podcast,
+        isLoggedIn: ensureAuthenticated()
         });
     })
 });
@@ -33,13 +34,17 @@ router.post('/:id/reviews', (req, res) => {
         rating: req.body.rating,
         comment: req.body.comment,
         UserId: req.body.userId,
-        PodcastId: req.params.id
+        PodcastId: req.params.id,
+        isLoggedIn: ensureAuthenticated()
     });
     res.send(null);
 });
 
 router.delete('/:podCastId/reviews/:reviewId', (req, res) => {
-    models.Review.destroy({ where: { id: req.params.reviewId }});
+    models.Review.destroy({ where: { id: req.params.reviewId }})
+    .then(()=> {
+        res.send(null);
+    });
 })
     
 module.exports = router;
