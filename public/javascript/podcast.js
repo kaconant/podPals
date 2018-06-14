@@ -10,12 +10,13 @@ let reviewComment = document.getElementById('comment_field').value();
 
 submitButton.addEventListener('click', function(event) { 
     event.preventDefault()
-    var url = 'http://localhost:3000/podcasts/10/reviews';
+    var url = 'http://localhost:3000/podcasts/:id/reviews';
     var data = { 
         UserId: reviewUserId,
         rating: reviewRating,
         comment: reviewComment
     };
+    console.log(url)
     fetch( url, {
     method: 'POST', // or 'PUT'
     body: JSON.stringify(data), // data can be `string` or {object}!
