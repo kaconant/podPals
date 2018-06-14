@@ -44,7 +44,7 @@
         {{!--individual user name to review for individual user review --}}
             <div class="row previousReviews">
                 {{#each reviews}}
-                <div class="card border-dark bg-bf mb-3 podcastCard">
+                <div data-id={{this.id}} class="card border-dark bg-bf mb-3 podcastCard">
                     {{#each users}}  
                         <div class="newRatingnewComment">
                             <h4 class="userName">{{this.github_id}}</h4>
@@ -73,13 +73,11 @@
                 <h3 class="newRatingArea">Rate this Podcast</h3>
             </div>
             <br>
-
             {{#each users}}
             <div class="form-group row">
                     <h2 class="userName">{{this.username}}</h2>
             </div>
             {{/each}}
-
             <form id="reviewForm" class="newInputReview">
                 <div class="form-group row">
                     <div class="col-sm-12 ratingAndComment">
@@ -106,7 +104,6 @@
                                         <i class="active fa fa-star" aria-hidden="true"></i>
                                 </label>
                             </div>
-
                             <div class="col-sm-12 commentForReview">
                             <input type="comment" id="comment" class="form-control newComment" name="comment" placeholder="Add a comment...">
                             <button type="submit" class="btn btn-secondary newCommentBtn">Submit</button>
