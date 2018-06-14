@@ -8,6 +8,10 @@
             <input type="button" class="btn btn-secondary btn-xs" value='Log Out' onclick=window.location.href='/'/> 
             {{/if}}
             
+            {{#if isLoggedIn}}
+            <input type="button" class="btn btn-secondary btn-xs" value='Home' onclick=location.href='/' /> 
+            {{/if}}
+
             {{#unless isLoggedIn}}
             <input type="button" class="btn btn-secondary btn-xs" value='Log In' onclick=window.location.href='/login'/> 
             {{/unless}} 
@@ -45,9 +49,11 @@
                 <div class="col-12 previousReviews flex-column">
                     {{#each reviews}}
                     <div class="card border-dark bg-bf mb-3 podcastCard">
+                        
                     {{#each users}}  
                         <div class="newRatingnewComment">
                             <p class="userName">{{this.github_id}}</p>
+
                     {{/each}}
                     {{!--individual user rating and comment for individual podcast to render --}}
                             <h4 class="ratingNumber">{{this.rating}} Stars</h4>

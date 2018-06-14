@@ -4,7 +4,7 @@ console.log('podcast.js connected!')
 // Submit a new Review
 
 $(function () {
-
+  
     // Filter results on index.hbs w/ search bar
     $(".search-bar").on("keyup", function() {
         let value = $(this).val().toLowerCase();
