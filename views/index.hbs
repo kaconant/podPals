@@ -2,17 +2,17 @@
     <div class="jumbotron jumbotron-fluid">
         <div class="container containerLogBtn container-flex">
             {{!-- creates log in button / log out button / sign up button depending on authentication  --}}
+
             {{#if isLoggedIn}}
-            <input type="button" class="btn btn-secondary btn-xs" value='Log Out' onclick=window.location.href='/'/> 
+            <a href="/logout" class="btn btn-secondary btn-xs">Log Out</a> 
+
             {{/if}}
             
             {{#unless isLoggedIn}}
-            <input type="button" class="btn btn-secondary btn-xs" value='Log In' onclick=window.location.href='/login'/> 
-            {{/unless}} 
-
-            {{#unless isLoggedIn}}
-            <input type="button" class="btn btn-secondary btn-xs" value='Home' onclick=location.href='/' /> 
+            <a href="/login" class="btn btn-secondary btn-xs">Log In</a> 
+            <a href="/login" class="btn btn-secondary btn-xs">Sign Up</a> 
             {{/unless}}
+
             </div>
         <img class="podpalslogo" src="/images/podpals.png" alt="podpalslogo" />
         <p class="lead">Read and write reviews of today's most popular podcasts</p>
