@@ -9,9 +9,9 @@ $(function () {
     $(".search-bar").on("keyup", function() {
         let value = $(this).val().toLowerCase();
         $(".podcastcard").filter(function() {
-          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
-      });
+    });
     
     // Submit a new review w/ form in podcast.hbs
     $('.newCommentBtn').click( (e) => {

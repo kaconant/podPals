@@ -12,6 +12,7 @@ body {
   padding: 0px;
   width: 100%;
   align-content: center;
+  align-items: center;
 }
 
 .jumbotron-fluid {
@@ -102,10 +103,16 @@ input.search-bar::placeholder {
 }
 
 .podcastCard {
-
   margin: 1% auto;
   min-width: 500px;
   max-width: 500px;
+}
+
+.updateBtn, .deleteBtn {
+  text-align: center;
+  min-width: 200px;
+  max-width: 200px;
+  display: inline;
 }
 
 .newRating {
@@ -168,6 +175,7 @@ input.newComment::placeholder {
 .newComment {
   margin-bottom: 3%;
   font-weight: 600;
+  max-width: 100%;
 }
 
 .input-group-btn {
