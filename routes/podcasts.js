@@ -23,20 +23,20 @@ router.get('/:id', (req, res) => {
     .then( (data) => { res.render('podcast', {
             layout: 'pclayout',
             podcast: (data[0]),
-            reviews: (data[1])
+            reviews: (data[1]),
         });
         console.log(data);
     });
-});
+    });
 
-router.post('/:id/', (req, res) => {
+router.post('/:id/reviews', (req, res) => {
     models.Review.create({
         rating: req.body.rating,
         comment: req.body.comment,
         UserId: req.body.userId,
         PodcastId: req.params.id
     });
-    res.send(`Review posted to Podcast #${podcastId}`);
+    res.send(null);
 });
     
 module.exports = router;

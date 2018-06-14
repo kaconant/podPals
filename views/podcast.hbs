@@ -28,7 +28,7 @@
 
     <div class="container">
         {{!--individual podcast image and title to render --}}
-        <div class="podcastInfo">
+        <div data-id={{podcast.id}} class="podcastInfo">
                 <div class="card mb-3">
                     <img class="card-img-top podcastImg" src="{{podcast.imageURL}}" alt="Card image cap">
                     <h3 class="card-title podcastTitle">{{podcast.title}}</h3>
@@ -45,9 +45,8 @@
         <br>
 
         {{!--individual user name to review for individual user review --}}
-            <div class="row flex-row flex-wrap">
-                <div class="col-12 previousReviews">
-
+            <div class="row">
+                <div class="col-12 previousReviews flex-column">
                     {{#each reviews}}
                     <div class="card border-dark bg-bf mb-3 podcastCard">
                         
@@ -61,7 +60,6 @@
                             <h5 class="comment">{{this.comment}}</h5>
                         </div>
                     {{/each }}
-
                     </div>
                 </div>
             </div>  
@@ -84,35 +82,35 @@
             </div>
             {{/each}}
 
-            <form class="newInputReview">
+            <form id="reviewForm" class="newInputReview">
                 <div class="form-group row">
                     <div class="col-sm-12 ratingAndComment">
                         <div class="card border-dark bg-bf mb-3">
-                            <div class="star-rating">
-                                <input id="star-5" type="radio" name="rating" value="star-5">
+                            <div id ="star-rating" class="star-rating">
+                                <input id="star-5" type="radio" name="rating" value=5>
                                 <label for="star-5" title="5 stars">
                                         <i class="active fa fa-star" aria-hidden="true"></i>
                                 </label>
-                                <input id="star-4" type="radio" name="rating" value="star-4">
+                                <input id="star-4" type="radio" name="rating" value=4>
                                 <label for="star-4" title="4 stars">
                                         <i class="active fa fa-star" aria-hidden="true"></i>
                                 </label>
-                                <input id="star-3" type="radio" name="rating" value="star-3">
+                                <input id="star-3" type="radio" name="rating" value=3>
                                 <label for="star-3" title="3 stars">
                                         <i class="active fa fa-star" aria-hidden="true"></i>
                                 </label>
-                                <input id="star-2" type="radio" name="rating" value="star-2">
+                                <input id="star-2" type="radio" name="rating" value=2>
                                 <label for="star-2" title="2 stars">
                                         <i class="active fa fa-star" aria-hidden="true"></i>
                                 </label>
-                                <input id="star-1" type="radio" name="rating" value="star-1">
+                                <input id="star-1" type="radio" name="rating" value=1>
                                 <label for="star-1" title="1 star">
                                         <i class="active fa fa-star" aria-hidden="true"></i>
                                 </label>
                             </div>
 
                             <div class="col-sm-12 commentForReview">
-                            <input type="comment" class="form-control newComment" id="comment" placeholder="Add a comment...">
+                            <input type="comment" id="comment" class="form-control newComment" name="comment" placeholder="Add a comment...">
                             <button type="submit" class="btn btn-secondary newCommentBtn">Submit</button>
                             </div>
                         </div>    

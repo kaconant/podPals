@@ -1,10 +1,14 @@
 $(document).ready(function(){
 
-    $("#search-bar").on("keyup", function() {
-      var value = $(this).val().toLowerCase();
-      $("#results").filter(function() {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+  console.log('index.js connected!')
+
+    $("#search-bar").keyup( function(e) {
+      var value = e.target.value.toLowerCase();
+      var filteredData = $("#results").filter(value, function(podcast) {
+        var foundInName    = podcast.name.toLowerCase().indexOf(searchString) > -1;
+        return foundInName;
       });
+      $('#results').html()
     });
 
   });

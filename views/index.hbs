@@ -1,5 +1,4 @@
 <body>
-    
     {{!-- jumbotron --}}
     <div class="jumbotron jumbotron-fluid">
         <div class="container containerLogBtn container-flex">
@@ -26,7 +25,6 @@
         <p class="lead">Read and write reviews of today's most popular podcasts</p>
     </div>
     <br>
-
     {{!-- creates search bar  --}}
     <div class="container">
 		<div class="row">
@@ -42,11 +40,9 @@
 			</div>
 		</div>
     </div>
-
     {{!-- creates individual podcast card via bootstrap --}}
     <div class="row">
         <div id="results" class="col-12 results">
-            
             {{#each podcasts}}
             <div class="card border-dark bg-bf mb-3 podcastcard" style="max-width: 20%"> 
                 <img class="card-img-top podcastImg" src="{{this.imageURL}}" style="max-width: 80%"/>
@@ -55,15 +51,11 @@
                     <br>
                     <button type="button" class="btn btn-secondary btn-block podcastPage" onclick=location.href="/podcasts/{{this.id}}">Reviews</button>
                     <button type="button" class="btn btn-secondary btn-block feedURL" onclick=location.href="{{this.feedURL}}">RSS Feed</button>
-                
-
                 </div>
             </div>
             {{/each}}
-            
         </div>
     </div>
-
     {{!-- footer --}}
             <div class="row">
             <div class="col-12">

@@ -3,28 +3,41 @@ console.log('podcast.js connected!')
 
 // Submit a new Review
 
-let submitButton = document.getElementById('submitButton');
-let reviewUserId = document.getElementById('userId_field').value();
-let reviewRating = document.getElementById('rating_field').value();
-let reviewComment = document.getElementById('comment_field').value();
+$(function () {
+  
+    // Filter results on index.hbs w/ search bar
+    $(".search-bar").on("keyup", function() {
+        let value = $(this).val().toLowerCase();
+        $(".podcastcard").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    
+    // Submit a new review w/ form in podcast.hbs
+    $('.newCommentBtn').click( (e) => {
+        e.preventDefault();
+        let reviewRating = $( "input[type=radio][name=rating]:checked" ).val();
+        let reviewComment = $( "input[type=comment][name=comment]" ).val();
+        let reviewUser = 1;
 
-submitButton.addEventListener('click', function(event) { 
-    event.preventDefault()
-    var url = 'http://localhost:3000/podcasts/:id/reviews';
-    var data = { 
-        UserId: reviewUserId,
-        rating: reviewRating,
-        comment: reviewComment
-    };
-    console.log(url)
-    fetch( url, {
-    method: 'POST', // or 'PUT'
-    body: JSON.stringify(data), // data can be `string` or {object}!
-    headers:{
-        'Content-Type': 'application/json'
-    }
-    }).then(res => res.json())
-    .catch(error => console.error('Error:', error))
-    .then(response => console.log('Success:', response));
-    console.log(res.json());
-    }, false);
+        let data = { "rating": reviewRating, "comment": reviewComment, "UserId": reviewUser };
+        let podcastId = $(".podcastInfo").data("id");
+
+        // Make ajax request to post form data to podcasts/:id/reviews
+        $.ajax({
+            type: "POST",
+            url: `http://localhost:3000/podcasts/${podcastId}/reviews`,
+            data: data,
+            success: function(data, textStatus, xhr) {
+                if (xhr.status !== 204) {
+                    let obj = JSON.parse(data)
+                }
+            },
+            failure: function(errMsg) {
+            alert(errMsg);
+            }
+        })
+        .then(()=> { location.reload() });
+    });
+
+}); 
