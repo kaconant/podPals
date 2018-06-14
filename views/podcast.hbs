@@ -41,32 +41,35 @@
         <br>
 
         {{!--individual user name to review for individual user review --}}
-            <div class="row">
-                <div class="col-12 previousReviews flex-column">
-                    {{#each reviews}}
-                    <div class="card border-dark bg-bf mb-3 podcastCard">
+            <div class="row previousReviews">
+                {{#each reviews}}
+                <div class="card border-dark bg-bf mb-3 podcastCard">
                     {{#each users}}  
                         <div class="newRatingnewComment">
                             <p class="userName">{{this.github_id}}</p>
                     {{/each}}
                     {{!--individual user rating and comment for individual podcast to render --}}
+                            <h6 class="timeCreated">{{this.createdAt}}</h6> 
                             <h4 class="ratingNumber">{{this.rating}} Stars</h4>
-                            <h5 class="comment">{{this.comment}}</h5>
+                            <h6 class="comment">{{this.comment}}</h6>
+                                {{!-- {{#if isLoggedIn}}  --}}
+                                <div class="CRUDBtn">
+                                    <button type="update" class="btn btn-secondary updateBtn">Update your review</button>
+                                    <button type="delete" class="btn btn-secondary deleteBtn">Delete your review</button>
+                                </div>
+                                {{!-- {{/if}} --}}
                         </div>
                     {{/each }}
-                    </div>
                 </div>
             </div>  
         <br>
-
-        {{!--option to write review if logged in --}}
+        <hr>
+        {{!-- option to write review if logged in --}}
 
         {{!-- {{#if isLoggedIn}}  --}}
-
-        <hr>
         <div class="row newRating">
             <div class="col-12 ratingStatement">
-            <h3 class="newRatingArea">Rate this Podcast</h3>
+                <h3 class="newRatingArea">Rate this Podcast</h3>
             </div>
             <br>
 
