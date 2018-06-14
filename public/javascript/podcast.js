@@ -49,16 +49,8 @@ $(function () {
         $.ajax({
             type: "DELETE",
             url: `http://localhost:3000/podcasts/${podcastId}/reviews/${reviewId}`,
-            success: function(data, textStatus, xhr) {
-                if (xhr.status !== 204) {
-                    let obj = JSON.parse(data)
-                }
-            },
-            failure: function(errMsg) {
-            alert(errMsg);
-            }
         })
-        .then(()=> { location.reload() });
+        .then(()=> { console.log('reloading'); location.reload() });
     });
 
 }); 
