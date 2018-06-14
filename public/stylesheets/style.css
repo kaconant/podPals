@@ -77,9 +77,17 @@ div.card-header {
 a {
   color: #00B7FF;
 }
+<<<<<<< HEAD
 .col-12 {
   max-width: 100%;
 }
+=======
+
+.col-12 {
+  max-width: 100%;
+}
+
+>>>>>>> 34e6a23c54034fe4d9b81b57ae8594e953cf368d
 .footer, .trademarks {
   background-color: whitesmoke;
   margin: 0%;
