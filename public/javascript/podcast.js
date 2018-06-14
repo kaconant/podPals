@@ -30,5 +30,6 @@ $(function () {
             alert(errMsg);
             }
         });
-    })
+        location.reload();
+    });
 }); 
