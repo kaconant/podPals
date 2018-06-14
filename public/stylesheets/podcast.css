@@ -6,13 +6,17 @@ body {
   font-family: Montserrat, sans-serif;
   background-color: rgba(226, 168, 60, 0.952);
 }
-  
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .container > .row {
   margin: 0px;
   padding: 0px;
   width: 100%;
   align-content: center;
-  align-items: center;
 }
 
 .jumbotron-fluid {
@@ -20,6 +24,7 @@ body {
   padding: 3%;
   position: relative;
   min-width: 100%;
+  max-width: 100%;
   font-family: Montserrat, sans-serif;
   text-align: center;
 }
@@ -28,6 +33,7 @@ body {
   margin: 0%;
   padding: 2%;
   height: 100%;
+  width: 20%;
 }
 
 .lead  {
@@ -44,12 +50,11 @@ body {
 }
 
 .containerLogBtn {
-  position: relative;
-  top: 1%;
-  left: 40%;
-  margin: 1%;
-  min-width: 100%;
-}
+    top: 1%;
+    margin: 1%;
+    display: flex;
+    flex: wrap-reverse;
+  }
 
 .search-bar {
   font-weight: 600;
@@ -194,6 +199,8 @@ a {
 .footer, .trademarks {
   background-color: whitesmoke;
   margin: 0%;
+  min-width: 100%;
+  max-width: 100%;
   text-align: center;
   align-items: center;
   align-content: center;

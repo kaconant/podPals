@@ -1,30 +1,24 @@
-<body>
     {{!-- jumbotron --}}
     <div class="jumbotron jumbotron-fluid">
         <div class="container containerLogBtn container-flex">
-
             {{!-- creates log in button / log out button / sign up button depending on authentication  --}}
             {{#if isLoggedIn}}
-            <input type="button" class="btn btn-secondary btn-xs" value='Log Out' onclick=window.location.href='/logout'>
+            <input type="button" class="btn btn-secondary btn-xs" value='Log Out' onclick=window.location.href='/'/> 
             {{/if}}
+            
+            {{#unless isLoggedIn}}
+            <input type="button" class="btn btn-secondary btn-xs" value='Log In' onclick=window.location.href='/login'/> 
+            {{/unless}} 
 
             {{#unless isLoggedIn}}
-            <input type="button" class="btn btn-secondary btn-xs" value='Log In' onclick=window.location.href='/login' />
+            <input type="button" class="btn btn-secondary btn-xs" value='Home' onclick=location.href='/' /> 
             {{/unless}}
-
-            {{#if isLoggedIn}}
-            <input type="button" class="btn btn-secondary btn-xs" value='Log Out' onclick=window.location.href='/logout'>
-            {{/if}}
-
-            {{#unless isLoggedIn}}
-            <input type="button" class="btn btn-secondary btn-xs" value='Sign Up' onclick=window.location.href='/login' />
-            {{/unless}}
-
-        </div>
+            </div>
         <img class="podpalslogo" src="/images/podpals.png" alt="podpalslogo" />
         <p class="lead">Read and write reviews of today's most popular podcasts</p>
     </div>
     <br>
+
     {{!-- creates search bar  --}}
     <div class="container">
 		<div class="row">
@@ -58,15 +52,12 @@
     </div>
     {{!-- footer --}}
             <div class="row">
-            <div class="col-12">
-                <div class="footer text-center">
-                    <a href="/">About Us</a>
-                    <a href="/">Contact Us</a>
-                    <a href="/">Follow Us</a>
-                <br>
-                <br>
-                    <p>&copy;PodPals, Inc.</p>
-                </div>
+                    <div class="footer text-center">
+                        <a href="/">About Us</a>
+                        <a href="/">Contact Us</a>
+                        <a href="/">Follow Us</a>
+                    <br>
+                    <br>
+                        <p>&copy;PodPals, Inc.</p>
+                    </div>
             </div>
-        </div>
-</body>
