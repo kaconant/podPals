@@ -36,7 +36,7 @@ router.post('/:id/reviews', (req, res) => {
         UserId: req.body.userId,
         PodcastId: req.params.id
     });
-    res.send(`Review posted to Podcast #${req.params.id}`);
+    res.send(null);
 });
     
 module.exports = router;
