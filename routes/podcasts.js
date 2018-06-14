@@ -35,7 +35,7 @@ router.post('/:id/reviews', (req, res) => {
         rating: req.body.rating,
         comment: req.body.comment,
         UserId: req.body.userId,
-        PodcastId: req.params.id,
+        PodcastId: req.params.id
     });
     res.send(null);
 });
