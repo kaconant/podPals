@@ -40,4 +40,25 @@ $(function () {
         .then(()=> { location.reload() });
     });
 
+        // Submit a new review w/ form in podcast.hbs
+    $('.deleteBtn').click( (e) => {
+        e.preventDefault();
+
+        // Make ajax request to post form data to podcasts/:id/reviews
+        $.ajax({
+            type: "DELETE",
+            url: `http://localhost:3000/podcasts/${podcastId}/reviews`,
+            data: data,
+            success: function(data, textStatus, xhr) {
+                if (xhr.status !== 204) {
+                    let obj = JSON.parse(data)
+                }
+            },
+            failure: function(errMsg) {
+            alert(errMsg);
+            }
+        })
+        .then(()=> { location.reload() });
+    });
+
 }); 

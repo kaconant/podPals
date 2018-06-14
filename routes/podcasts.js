@@ -38,5 +38,9 @@ router.post('/:id/reviews', (req, res) => {
     });
     res.send(null);
 });
+
+router.delete('/:id/reviews', (req, res) => {
+    models.Review.destroy({ where: { id: req.params.id }});
+})
     
 module.exports = router;
