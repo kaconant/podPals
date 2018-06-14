@@ -41,9 +41,8 @@
         <br>
 
         {{!--individual user name to review for individual user review --}}
-            <div class="row flex-row flex-wrap">
-                <div class="col-12 previousReviews">
-
+            <div class="row">
+                <div class="col-12 previousReviews flex-column">
                     {{#each reviews}}
                     <div class="card border-dark bg-bf mb-3 podcastCard">
                     {{#each users}}  
@@ -55,7 +54,6 @@
                             <h5 class="comment">{{this.comment}}</h5>
                         </div>
                     {{/each }}
-
                     </div>
                 </div>
             </div>  
