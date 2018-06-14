@@ -4,9 +4,9 @@ console.log('podcast.js connected!')
 // Submit a new Review
 
 $(function () {
-
-    var reviewRating = $("input[name=rating]:checked").val();
-    var reviewComment = $("#comment").text();
+    console.log($("#reviewForm").val());
+    var reviewRating = $("input[name=rating]:checked").attr('value');
+    var reviewComment = $("#comment").attr('value');
     var reviewUser = 1;
 
     $('.newCommentBtn').click( (e) => {
