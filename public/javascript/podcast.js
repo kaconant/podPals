@@ -43,12 +43,12 @@ $(function () {
         // Submit a new review w/ form in podcast.hbs
     $('.deleteBtn').click( (e) => {
         e.preventDefault();
-
+        let podcastId = $(".podcastInfo").data("id");
+        let reviewId = $(".podcastCard").data("id");
         // Make ajax request to post form data to podcasts/:id/reviews
         $.ajax({
             type: "DELETE",
-            url: `http://localhost:3000/podcasts/${podcastId}/reviews`,
-            data: data,
+            url: `http://localhost:3000/podcasts/${podcastId}/reviews/${reviewId}`,
             success: function(data, textStatus, xhr) {
                 if (xhr.status !== 204) {
                     let obj = JSON.parse(data)

@@ -43,9 +43,9 @@
         {{!--individual user name to review for individual user review --}}
             <div class="row previousReviews">
                 {{#each reviews}}
-                <div class="card border-dark bg-bf mb-3 podcastCard">
+                <div data-id={{this.id}} class="card border-dark bg-bf mb-3 podcastCard">
                     {{#each users}}  
-                        <div class="newRatingnewComment">
+                    <div class="newRatingnewComment">
                             <p class="userName">{{this.github_id}}</p>
                     {{/each}}
                     {{!--individual user rating and comment for individual podcast to render --}}
