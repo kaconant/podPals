@@ -1,8 +1,6 @@
-<body>
     {{!-- jumbotron --}}
     <div class="jumbotron jumbotron-fluid">
         <div class="container containerLogBtn container-flex">
-
             {{!-- creates log in button / log out button / sign up button depending on authentication  --}}
             {{#if isLoggedIn}}
             <input type="button" class="btn btn-secondary btn-xs" value='Log Out' onclick=window.location.href='/'/> 
@@ -15,8 +13,7 @@
             {{#unless isLoggedIn}}
             <input type="button" class="btn btn-secondary btn-xs" value='Home' onclick=location.href='/' /> 
             {{/unless}}
-
-        </div>
+            </div>
         <img class="podpalslogo" src="/images/podpals.png" alt="podpalslogo" />
         <p class="lead">Read and write reviews of today's most popular podcasts</p>
     </div>
@@ -43,13 +40,13 @@
         {{!--individual user name to review for individual user review --}}
             <div class="row previousReviews">
                 {{#each reviews}}
-                <div data-id={{this.id}} class="card border-dark bg-bf mb-3 podcastCard">
+                <div class="card border-dark bg-bf mb-3 podcastCard">
                     {{#each users}}  
-                    <div class="newRatingnewComment">
-                            <p class="userName">{{this.github_id}}</p>
+                        <div class="newRatingnewComment">
+                            <h4 class="userName">{{this.github_id}}</h4>
                     {{/each}}
                     {{!--individual user rating and comment for individual podcast to render --}}
-                            <h6 class="timeCreated">{{this.createdAt}}</h6> 
+                            <h6 class="timeCreated">Date created: {{this.createdAt}}</h6> 
                             <h4 class="ratingNumber">{{this.rating}} Stars</h4>
                             <h6 class="comment">{{this.comment}}</h6>
                                 {{!-- {{#if isLoggedIn}}  --}}
@@ -118,7 +115,6 @@
         {{!-- {{/if}} --}}
 
         <div class="row">
-            <div class="col-12">
                 <div class="footer text-center">
                     <a href="/">About Us</a>
                     <a href="/">Contact Us</a>
@@ -127,7 +123,5 @@
                 <br>
                     <p>&copy;PodPals, Inc.</p>
                 </div>
-            </div>
         </div>
     </div>
-</body>
