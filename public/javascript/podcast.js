@@ -36,8 +36,8 @@ $(function () {
             failure: function(errMsg) {
             alert(errMsg);
             }
-        });
-        location.reload();
+        })
+        .then(()=> { location.reload() });
     });
 
 }); 

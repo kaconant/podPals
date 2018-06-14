@@ -27,7 +27,7 @@ router.get('/:id', (req, res) => {
         });
         console.log(data);
     });
-});
+    });
 
 router.post('/:id/reviews', (req, res) => {
     models.Review.create({
