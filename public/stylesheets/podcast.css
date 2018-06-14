@@ -102,9 +102,8 @@ input.search-bar::placeholder {
 }
 
 .podcastCard {
-  display: flex;
-  justify-content: center;
-  margin: 1%;
+
+  margin: 1% auto;
   min-width: 500px;
   max-width: 500px;
 }
