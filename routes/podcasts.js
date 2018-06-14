@@ -25,8 +25,10 @@ router.get('/:id', (req, res) => {
             podcast: (data[0]),
             reviews: (data[1]),
             isLoggedIn: ensureAuthenticated()
+        })
+        .catch(err => {
+            console.error(err);
         });
-        console.log(data);
     });
     });
 
