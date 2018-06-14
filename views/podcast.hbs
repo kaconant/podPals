@@ -5,13 +5,15 @@
             {{!-- creates log in button / log out button / sign up button depending on authentication  --}}
             {{#if isLoggedIn}}
             <a href="/logout" class="btn btn-secondary btn-xs">Log Out</a> 
+            <a href="/" class="btn btn-secondary btn-xs">Home</a> 
             {{/if}}
             
             {{#unless isLoggedIn}}
             <a href="/login" class="btn btn-secondary btn-xs">Log In</a> 
             <a href="/" class="btn btn-secondary btn-xs">Home</a> 
             {{/unless}}
-            </div>
+
+        </div>
         <img class="podpalslogo" src="/images/podpals.png" alt="podpalslogo" />
         <p class="lead">Read and write reviews of today's most popular podcasts</p>
     </div>
