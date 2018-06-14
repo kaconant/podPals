@@ -24,6 +24,7 @@ router.get('/:id', (req, res) => {
             layout: 'pclayout',
             podcast: (data[0]),
             reviews: (data[1]),
+            isLoggedIn: ensureAuthenticated()
         });
         console.log(data);
     });
@@ -35,7 +36,6 @@ router.post('/:id/reviews', (req, res) => {
         comment: req.body.comment,
         UserId: req.body.userId,
         PodcastId: req.params.id,
-        isLoggedIn: ensureAuthenticated()
     });
     res.send(null);
 });
