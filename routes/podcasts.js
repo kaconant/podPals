@@ -12,7 +12,6 @@ router.get('/', function (req, res, next) {
         });
     })
 });
-
 // Get individual podcast and its reviews
 router.get('/:id', (req, res) => {
     let getPodcast = models.Podcast.findById(req.params.id);
