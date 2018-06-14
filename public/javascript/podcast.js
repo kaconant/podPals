@@ -5,10 +5,17 @@ console.log('podcast.js connected!')
 
 $(function () {
 
+    // Filter results on index.hbs w/ search bar
+    $(".search-bar").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $(".podcastcard").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    
+    // Submit a new review w/ form in podcast.hbs
     $('.newCommentBtn').click( (e) => {
-
         e.preventDefault();
-
         var reviewRating = $( "input[type=radio][name=rating]:checked" ).val();
         var reviewComment = $( "input[type=comment][name=comment]" ).val();
         var reviewUser = 1;
