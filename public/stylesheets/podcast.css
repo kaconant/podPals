@@ -6,10 +6,6 @@ body {
   font-family: Montserrat, sans-serif;
   background-color: rgba(226, 168, 60, 0.952);
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 34e6a23c54034fe4d9b81b57ae8594e953cf368d
 .row {
   margin-left: 0;
   margin-right: 0;
@@ -51,10 +47,7 @@ body {
     display: flex;
     flex: wrap-reverse;
   }
-<<<<<<< HEAD
-=======
-  
->>>>>>> 34e6a23c54034fe4d9b81b57ae8594e953cf368d
+
 .search-bar {
   font-weight: 600;
 }

@@ -18,7 +18,6 @@
         <p class="lead">Read and write reviews of today's most popular podcasts</p>
     </div>
     <br>
-
     <div class="container">
         {{!--individual podcast image and title to render --}}
         <div data-id={{podcast.id}} class="podcastInfo">
@@ -27,7 +26,6 @@
                     <h3 class="card-title podcastTitle">{{podcast.title}}</h3>
                 </div>
         </div> 
-
         {{!--rating Title --}}
         <hr>
         <div class="row ratingTitle">
@@ -37,7 +35,8 @@
         </div>
         <br>
 
-{{!--individual user name to review for individual user review --}}
+
+        {{!--individual user name to review for individual user review --}}
         <div class="row previousReviews">
             {{#each reviews}}
             <div data-id={{this.id}} class="card border-dark bg-bf mb-3 podcastCard">
