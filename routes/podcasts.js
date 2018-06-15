@@ -9,7 +9,7 @@ router.get('/', function (req, res, next) {
     .then(podcast => {
         res.render('podcast', {
         podcast: podcast,
-        isLoggedIn: ensureAuthenticated()
+        isLoggedIn: req.isAuthenticated()
         });
     })
 });
@@ -24,13 +24,13 @@ router.get('/:id', (req, res) => {
             layout: 'pclayout',
             podcast: (data[0]),
             reviews: (data[1]),
-            isLoggedIn: ensureAuthenticated()
+            isLoggedIn: req.isAuthenticated()
         })
         .catch(err => {
             console.error(err);
         });
     });
-    });
+});
 
 router.post('/:id/reviews', (req, res) => {
     models.Review.create({
