@@ -37,33 +37,34 @@
         </div>
         <br>
 
-        {{!--individual user name to review for individual user review --}}
-            <div class="row previousReviews">
-                {{#each reviews}}
-                <div data-id={{this.id}} class="card border-dark bg-bf mb-3 podcastCard">
-                    {{#each users}}  
-                        <div class="newRatingnewComment">
-                            <h4 class="userName">{{this.github_id}}</h4>
-                    {{/each}}
-                    {{!--individual user rating and comment for individual podcast to render --}}
-                            <h6 class="timeCreated">Date created: {{this.createdAt}}</h6> 
-                            <h4 class="ratingNumber">{{this.rating}} Stars</h4>
-                            <h6 class="comment">{{this.comment}}</h6>
-                                {{!-- {{#if isLoggedIn}}  --}}
-                                <div class="CRUDBtn">
-                                    <button type="update" class="btn btn-secondary updateBtn">Update your review</button>
-                                    <button type="delete" class="btn btn-secondary deleteBtn">Delete your review</button>
-                                </div>
-                                {{!-- {{/if}} --}}
-                        </div>
-                    {{/each }}
-                </div>
-            </div>  
+{{!--individual user name to review for individual user review --}}
+        <div class="row previousReviews">
+            {{#each reviews}}
+            <div data-id={{this.id}} class="card border-dark bg-bf mb-3 podcastCard">
+
+                {{!-- {{#each users}}  
+                    <div class="newRatingnewComment">
+                        <h4 class="userName">User number: {{this.github_id}}</h4>
+                {{!-- </div> --}}
+                {{!-- {{/each}} --}}
+
+                {{!--individual user rating and comment for individual podcast to render --}}
+                    <h4 class="ratingNumber">{{this.rating}} Stars</h4>
+                    <h6 class="comment">{{this.comment}}</h6>
+                    {{#if ../isLoggedIn}}
+                    <div class="CRUDBtn">
+                        <button type="update" class="btn btn-secondary updateBtn">Update your review</button>
+                        <button type="delete" class="btn btn-secondary deleteBtn">Delete your review</button>
+                    </div>
+                    {{/if}}
+            </div>
+            {{/each }}
         <br>
         <hr>
+        </div>  
         {{!-- option to write review if logged in --}}
 
-        {{!-- {{#if isLoggedIn}}  --}}
+        {{#if isLoggedIn}}
         <div class="row newRating">
             <div class="col-12 ratingStatement">
                 <h3 class="newRatingArea">Rate this Podcast</h3>
@@ -109,7 +110,7 @@
                 </div>
             </form>
         </div>
-        {{!-- {{/if}} --}}
+        {{/if}}
 
         <div class="row">
                 <div class="footer text-center">

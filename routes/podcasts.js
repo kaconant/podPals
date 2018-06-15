@@ -42,6 +42,16 @@ router.post('/:id/reviews', (req, res) => {
     res.send(null);
 });
 
+router.patch('/:id/reviews', (req, res) => {
+    models.Review.update({
+        rating: req.body.rating,
+        comment: req.body.comment,
+        UserId: req.body.userId,
+        PodcastId: req.params.id
+    });
+    res.send(null);
+});
+
 router.delete('/:podCastId/reviews/:reviewId', (req, res) => {
     models.Review.destroy({ where: { id: req.params.reviewId }})
     .then(()=> {
