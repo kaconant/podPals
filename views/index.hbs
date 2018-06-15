@@ -33,31 +33,31 @@
 				</form>
 			</div>
 		</div>
-    </div>
     {{!-- creates individual podcast card via bootstrap --}}
-    <div class="row">
-        <div id="results" class="col-12 results">
-            {{#each podcasts}}
-            <div class="card border-dark bg-bf mb-3 podcastcard" style="max-width: 20%"> 
-                <img class="card-img-top podcastImg" src="{{this.imageURL}}" style="max-width: 80%"/>
-                <div class="card-body">
-                    <div class="card-header"><strong>{{this.title}}</strong></div>
-                    <br>
-                    <button type="button" class="btn btn-secondary btn-block podcastPage" onclick=location.href="/podcasts/{{this.id}}">Reviews</button>
-                    <button type="button" class="btn btn-secondary btn-block feedURL" onclick=location.href="{{this.feedURL}}">RSS Feed</button>
+        <div class="row">
+            <div id="results" class="col-12 results">
+                {{#each podcasts}}
+                <div class="card border-dark bg-bf mb-3 podcastcard" style="max-width: 20%"> 
+                    <img class="card-img-top podcastImg" src="{{this.imageURL}}" style="max-width: 80%"/>
+                    <div class="card-body">
+                        <div class="card-header"><strong>{{this.title}}</strong></div>
+                        <br>
+                        <button type="button" class="btn btn-secondary btn-block podcastPage" onclick=location.href="/podcasts/{{this.id}}">Reviews</button>
+                        <button type="button" class="btn btn-secondary btn-block feedURL" onclick=location.href="{{this.feedURL}}">RSS Feed</button>
+                    </div>
                 </div>
+                {{/each}}
             </div>
-            {{/each}}
+        </div>
+        {{!-- footer --}}
+        <div class="row">
+            <div class="footer text-center">
+                <a href="/">About Us</a>
+                <a href="/">Contact Us</a>
+                <a href="/">Follow Us</a>
+            <br>
+            <br>
+                <p>&copy;PodPals, Inc.</p>
+            </div>
         </div>
     </div>
-    {{!-- footer --}}
-            <div class="row">
-                    <div class="footer text-center">
-                        <a href="/">About Us</a>
-                        <a href="/">Contact Us</a>
-                        <a href="/">Follow Us</a>
-                    <br>
-                    <br>
-                        <p>&copy;PodPals, Inc.</p>
-                    </div>
-            </div>
