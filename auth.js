@@ -19,7 +19,7 @@ const setupAuth = (app) => {
     clientSecret: '1fe954bdd09fc2ec2a23a1a9cdf960290a7908a8',
     callbackURL: 'http://localhost:3000/github/auth'
   }, (accessToken, refreshToken, profile, done) => {
-    models.user.findOrCreate({
+    models.User.findOrCreate({
       where: {
         github_id: profile.id
       }
